@@ -1,0 +1,15 @@
+language: ruby
+rvm:
+- 2.1.2
+deploy:
+  provider: heroku
+  api_key:
+    secure: AVVmq4g3KZirlCei50YVp8e9PaJfNq6GyzXsNoz9YYS1VrZegb2N+jts0+gVCMYYwYKeJBorupQysbhkOZ+r2fWu4eeP6NzYu3Ng66SR9OzVsANQtQp5rQnMi0S67o7lKQZO1tO+KMjnmGIcNSXouUqxoxPllAH5ec8iC6GXruA=
+  app: rakutabi
+  on:
+    repo: tnumata3632/RakuTabi
+addons:
+  postgresql: "9.3"
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
