@@ -1,0 +1,11 @@
+<%= image_tag('bg.jpg', :class => 'bg', :alt => '') %>
+
+<div id="container">
+  <div class="logo">
+    <%= image_tag('logo.png', :alt => 'RakuTabi') %>
+  </div>
+
+  <div class="button">
+    <%= image_tag('button.png', :alt => 'Search') %>
+  </div>
+</div>
