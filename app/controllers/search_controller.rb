@@ -1,6 +1,5 @@
 class SearchController < ApplicationController
   def search
-    # keyword = params['keyword']
     httpClient = HTTPClient.new
     appid = ENV["APPID"]
     afid = ENV["AFID"]
@@ -12,7 +11,6 @@ class SearchController < ApplicationController
           'applicationId' => appid,
           'affiliateId'   => afid,
           'genre'         => 'onsen'
-          # 'keyword'       => 'iphone6'
       })
       @jsonData = JSON.parse data
       p @jsonData
