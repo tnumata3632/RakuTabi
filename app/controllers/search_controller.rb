@@ -3,6 +3,8 @@ class SearchController < ApplicationController
     httpClient = HTTPClient.new
     appid = ENV["APPID"]
     afid = ENV["AFID"]
+    p appid
+    p afid
     @jsonData = nil
     @errorMsg = nil
     
