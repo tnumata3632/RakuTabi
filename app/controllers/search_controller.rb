@@ -3,8 +3,6 @@ class SearchController < ApplicationController
     httpClient = HTTPClient.new
     appid = ENV["APPID"]
     afid = ENV["AFID"]
-    appid = '1015756569079501204'
-    afid = '131ebb35.37b19196.131ebb36.64da1433'
     p appid
     p afid
     @jsonData = nil
