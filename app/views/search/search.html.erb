@@ -1,0 +1,8 @@
+<% if ! @jsonData.nil? %>
+<h2><%= @jsonData['Rankings'][0]['Ranking']['title'] %></h2>
+<ul>
+    <% @jsonData['Rankings'][0]['Ranking']['hotels'].each do |item| %>
+    <li><%= link_to item['hotel']['hotelName'], item['hotel']['hotelInformationUrl'] %>／評価：<%= item['hotel']['reviewAverage'] %></li>
+    <% end %>
+</ul>
+<% end %>
