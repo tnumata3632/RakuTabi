@@ -16,4 +16,6 @@
 /tmp
 
 # Ignore all backup files.
-# *~
+*~
+*.swap
+*#
