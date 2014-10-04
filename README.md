@@ -10,4 +10,4 @@
 **エリアを指定せずに、思いつかないような場所や変わったプランを推薦する機能** が備わっています。  
   
 --
-This software is released under the MIT License, see LICENSE.txt.
+This software is released under the MIT License, see [LICENSE.txt](https://github.com/tnumata3632/RakuTabi/blob/master/LICENSE.txt).
