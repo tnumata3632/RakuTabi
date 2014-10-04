@@ -6,4 +6,5 @@
 楽天トラベルのようなWebサービスや旅行代理店のカウンターとは違って、   
 エリアを指定せずに、思いつかないような場所や変わったプランを推薦する機能が備わっています。  
   
+--
 This software is released under the MIT License, see LICENSE.txt.
