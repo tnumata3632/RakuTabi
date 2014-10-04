@@ -40,3 +40,5 @@ gem 'spring',        group: :development
 
 gem 'rails_12factor', group: :production
 ruby '2.1.2'
+
+gem 'httpclient'
