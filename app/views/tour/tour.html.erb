@@ -1,0 +1,34 @@
+
+<% if ! @jsonData.nil? %>
+  <div class="wrapper">
+
+    <h2>検索結果</h2>
+    
+    <% @jsonData['results']['tour'].each do |item| %>
+      <% if ! item['img'].empty? %>
+
+        <!-- データを変数に格納 -->
+        <% item['img'].sample(1).each do |img| %>
+          <% @img_url = img['l'] %>
+          <% @caption = img['caption'] %>
+        <% end %>
+
+        <% @tour_url = item['urls']['pc'] %>
+        <% @title = item['title'] %>
+        <% @city = item['city_summary'] %>
+
+        <!-- HTMLで出力 -->
+        <div class="tour">
+          <%= link_to image_tag(@img_url, :alt => @caption), @tour_url %>
+          <div class="text">
+            <%= @title %><br />
+            <br />
+            <%= @city %>
+          </div>
+        </div>
+        
+      <% end %>
+    <% end %>
+
+  </div>
+<% end %>
