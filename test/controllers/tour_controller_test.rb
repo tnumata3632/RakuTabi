@@ -2,8 +2,11 @@ require 'test_helper'
 
 class TourControllerTest < ActionController::TestCase
   test "should get tour" do
-    get :tour
-    assert_response :success
+    post :tour
+    jsondata = assigns(:jsonData)
+    assert_not_nil jsondata
+    assert_not_nil jsondata['results']['tour'][0]['title']
+    # assert_response :success
   end
 
 end
