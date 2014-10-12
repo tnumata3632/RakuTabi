@@ -2,7 +2,7 @@ require 'test_helper'
 
 class TourControllerTest < ActionController::TestCase
   test "should get tour" do
-    post :tour
+    get :search
     jsondata = assigns(:jsonData)
     assert_not_nil jsondata
     assert_not_nil jsondata['results']['tour'][0]['title']
