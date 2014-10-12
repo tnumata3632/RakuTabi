@@ -18,4 +18,5 @@
 # Ignore all backup files.
 *~
 *.swap
+*.swp
 *#
