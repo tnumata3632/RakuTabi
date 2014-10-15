@@ -5,9 +5,7 @@
     <div><%= image_tag('logo.png', :alt => 'RakuTabi') %></div>
   </div>
 
-<%= form_tag('/tour', :method => :get) do %>
   <div class="button">
-    <div><%= image_submit_tag('button.png', :alt => 'Search') %></div>
+    <div><%= link_to image_tag('button.png', :alt => 'Search'), '/selection' %>
   </div>
-<% end %>
 </div>
