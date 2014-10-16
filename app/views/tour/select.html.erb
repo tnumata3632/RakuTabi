@@ -4,7 +4,7 @@
   </div>
 
   <div class="button">
-  <%= link_to image_tag('town.png', :alt => 'Town'), '/tour?imgid=town' %>
-  <%= link_to image_tag('sea.png', :alt => 'Sea'), '/tour?imgid=sea' %>
+  <%= link_to image_tag(@image_l.path), '/tour?imgid=' + @image_l.image_id %>
+  <%= link_to image_tag(@image_r.path), '/tour?imgid=' + @image_r.image_id %>
   </div>
 </div>

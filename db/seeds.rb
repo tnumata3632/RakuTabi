@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+@image = Image.new
+@image.image_id = "town"
+@image.keywords = "ニューヨーク"
+@image.path = "town.png"
+@image.save
+
+@image = Image.new
+@image.image_id = "sea"
+@image.keywords = "ビーチ リゾート"
+@image.path = "sea.png"
+@image.save
