@@ -1,8 +1,12 @@
 class TourController < ApplicationController
   def select
-    @image_l = Image.find_by(:image_id => "town")
-    @image_r = Image.find_by(:image_id => "sea")
-    @image_dummy = Image.new
+    # get diffrent two images
+    begin
+      images = Image.all.sample(2)
+    end while (images[0].image_id == images[1].image_id)
+
+    @image_l = images[0]
+    @image_r = images[1]
   end
 
   def search
@@ -15,6 +19,7 @@ class TourController < ApplicationController
     end
     dept = "TYO"
     @jsonData = tour.get_tours(keyword, dept)
-    p keyword
+    p "dept    = " + dept
+    p "keyword = " + keyword
   end
 end
