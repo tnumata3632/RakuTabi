@@ -7,15 +7,14 @@ class TourController < ApplicationController
 
   def search
     tour = AbroadTour.new
-    case params[:imgid]
-    when "town"
-      keyword = "街 ニューヨーク"
-    when "sea"
-      keyword = "海 ビーチ"
+    image = Image.find_by(:image_id => params[:imgid])
+    if (image != nil)
+      keyword = image.keywords
     else
       keyword = "世界遺産 トルコ フィンランド"
     end
     dept = "TYO"
     @jsonData = tour.get_tours(keyword, dept)
+    p keyword
   end
 end
