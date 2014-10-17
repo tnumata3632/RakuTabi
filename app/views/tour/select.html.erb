@@ -1,10 +1,10 @@
-<div id="container">
-  <div class="logo">
+<div class="wrapper">
+  <div class="title">
     <div><%= image_tag('which.png', :alt => 'Which do you lile?') %></div>
   </div>
 
-  <div class="button">
-  <%= link_to image_tag(@image_l.path), '/tour?imgid=' + @image_l.image_id %>
-  <%= link_to image_tag(@image_r.path), '/tour?imgid=' + @image_r.image_id %>
+  <div class="pic">
+    <%= link_to image_tag(@image_l.path), '/tour?imgid=' + @image_l.image_id, { :class => "left" } %>    
+    <%= link_to image_tag(@image_r.path), '/tour?imgid=' + @image_r.image_id, { :class => "right" } %>
   </div>
 </div>
