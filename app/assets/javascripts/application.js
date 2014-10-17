@@ -29,6 +29,6 @@ function rotate() {
 window.setTimeout(rotate, 100);
 
 function show() {
-	var elem = document.getElementById('target');
-	elem.className = "visible"
+  var elem = document.getElementById('target');
+  elem.className = "visible"
 }
