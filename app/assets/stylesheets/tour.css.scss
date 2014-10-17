@@ -7,9 +7,60 @@
 	margin: 80px 0;
 }
 
-.pic .right{
-	margin-left: 150px;
+#target {
+  display: inline-block;
 }
+.hidden {visibility: hidden;}
+.visible {visibility: visible;}
+#loading {
+  position:relative;
+  width:100px;
+  height:100px;
+  margin:25px 25px 120px 25px;
+  -moz-border-radius:100px;
+  -webkit-border-radius:100px;
+  float:left;
+  -moz-transform:scale(0.5);
+  -webkit-transform:scale(0.5);
+  -webkit-animation-name: rotateThis;
+  -webkit-animation-duration:2s;
+  -webkit-animation-iteration-count:infinite;
+  -webkit-animation-timing-function:linear;
+}
+#loading div {
+  width:20px;
+  height:20px;
+  background:#000;
+  -moz-border-radius:40px;
+  -webkit-border-radius:40px;
+  position:absolute;
+  left:40px;
+  top:40px;
+}
+#loading .bar1 {
+  -moz-transform:rotate(0deg)   translate(0, -40px) scale(0.1);
+  -webkit-transform:rotate(0deg)   translate(0, -40px) scale(0.1);opacity:0.12;}
+#loading .bar2 {
+  -moz-transform:rotate(45deg)  translate(0, -40px) scale(0.2);
+  -webkit-transform:rotate(45deg)  translate(0, -40px) scale(0.2);opacity:0.25;}
+#loading .bar3 {
+  -moz-transform:rotate(90deg)  translate(0, -40px) scale(0.4);
+  -webkit-transform:rotate(90deg)  translate(0, -40px) scale(0.4);opacity:0.37;}
+#loading .bar4 {
+  -moz-transform:rotate(135deg) translate(0, -40px) scale(0.6);
+  -webkit-transform:rotate(135deg) translate(0, -40px) scale(0.6);opacity:0.50;}
+#loading .bar5 {
+  -moz-transform:rotate(180deg) translate(0, -40px) scale(0.8);
+  -webkit-transform:rotate(180deg) translate(0, -40px) scale(0.8);opacity:0.62;}
+#loading .bar6 {
+  -moz-transform:rotate(225deg) translate(0, -40px) scale(1);
+  -webkit-transform:rotate(225deg) translate(0, -40px) scale(1);opacity:0.75;}
+#loading .bar7 {
+  -moz-transform:rotate(270deg) translate(0, -40px) scale(1.2);
+  -webkit-transform:rotate(270deg) translate(0, -40px) scale(1.2);opacity:0.87;}
+#loading .bar8 {
+  -moz-transform:rotate(315deg) translate(0, -40px) scale(1.4);
+  -webkit-transform:rotate(315deg) translate(0, -40px) scale(1.4);opacity:1;}
 
 /* tour */
 
