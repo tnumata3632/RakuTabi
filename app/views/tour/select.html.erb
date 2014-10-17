@@ -1,10 +1,24 @@
-<div id="container">
-  <div class="logo">
+<div class="wrapper">
+  <div class="title">
     <div><%= image_tag('which.png', :alt => 'Which do you lile?') %></div>
   </div>
+  
+  <div class="pic">
+    <%= link_to image_tag(@image_l.path), '/tour?imgid=' + @image_l.image_id, {:id => "left", :onclick => "show();"} %>
 
-  <div class="button">
-  <%= link_to image_tag(@image_l.path), '/tour?imgid=' + @image_l.image_id %>
-  <%= link_to image_tag(@image_r.path), '/tour?imgid=' + @image_r.image_id %>
+    <div id="target" class="hidden">
+      <div id="loading">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+        <div class="bar4"></div>
+        <div class="bar5"></div>
+        <div class="bar6"></div>
+        <div class="bar7"></div>
+        <div class="bar8"></div>
+      </div>
+    </div>
+    
+    <%= link_to image_tag(@image_r.path), '/tour?imgid=' + @image_r.image_id, {:id => "right", :onclick => "show();"} %>
   </div>
 </div>
