@@ -1,3 +1,13 @@
+<script>
+$(window).load(function() {
+  $('.flexslider').flexslider({
+    animation: "slide",
+    animationLoop: true,
+    controlNav: false
+  });
+});
+</script>
+
 <%= content_for(:header_for_google) do %>
 <style type="text/css">
   html { height: 100% }
@@ -35,13 +45,7 @@
 <% end %>
 
 <% if ! @jsonData.nil? %>
-  <div class="wrapper">
-
-    <h2>検索結果</h2>
-    
-    <div style="border: 1px solid black; height: 200px; margin: -50px 40px 50px;">
-      <div id="map_canvas" style="width:100%; height:100%"></div>
-    </div>
+  <div class="wrapper"><div class="flexslider"><ul class="slides">
 
     <% @jsonData['results']['tour'].each do |item| %>
       <% if ! item['img'].empty? %>
@@ -57,17 +61,26 @@
         <% @city = item['city_summary'] %>
 
         <!-- HTMLで出力 -->
-        <div class="tour">
-          <%= link_to image_tag(@img_url, :alt => @caption), @tour_url, {:target => "_blank"} %>
-          <div class="text">
-            <%= @title %><br />
-            <br />
-            <%= @city %>
+        <li>
+          <div class="tour">
+            <div class="pic">
+              <%= image_tag(@img_url, :alt => @caption) %>
+            </div>
+            <div class="text">
+              <h2><%= @city %></h2>
+              <%= @title %><br />
+              <br />
+              <%= link_to '> 詳細をみる', @tour_url, {:target => "_blank"} %>
+            </div>
           </div>
-        </div>
+        </li>
         
       <% end %>
     <% end %>
 
-  </div>
+  <ul></div> </div>
 <% end %>
+
+<div style="border: 1px solid black; height: 200px; margin: -50px 40px 50px;">
+  <div id="map_canvas" style="width:100%; height:100%"></div>
+</div>
