@@ -6,50 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-@image = Image.new
-@image.image_id = "town00r"
-@image.keywords = "ロンドン"
-@image.path = @image.image_id + ".png"
-@image.save
+Image.create([image_id: 'age00', keywords: '港町', path: 'age00.png'])
+Image.create([image_id: 'age01', keywords: '港町', path: 'age01.png'])
 
-@image = Image.new
-@image.image_id = "town01r"
-@image.keywords = "ストリート"
-@image.path = @image.image_id + ".png"
-@image.save
-
-@image = Image.new
-@image.image_id = "town02r"
-@image.keywords = "ニューヨーク"
-@image.path = @image.image_id + ".png"
-@image.save
-
-@image = Image.new
-@image.image_id = "town03r"
-@image.keywords = "渋滞"
-@image.path = @image.image_id + ".png"
-@image.save
-
-@image = Image.new
-@image.image_id = "nature00r"
-@image.keywords = "森林"
-@image.path = @image.image_id + ".png"
-@image.save
-
-@image = Image.new
-@image.image_id = "nature01r"
-@image.keywords = "ビーチリゾート"
-@image.path = @image.image_id + ".png"
-@image.save
-
-@image = Image.new
-@image.image_id = "nature02r"
-@image.keywords = "海 山"
-@image.path = @image.image_id + ".png"
-@image.save
-
-@image = Image.new
-@image.image_id = "nature03r"
-@image.keywords = "国立公園"
-@image.path = @image.image_id + ".png"
-@image.save
