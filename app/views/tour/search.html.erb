@@ -26,7 +26,7 @@ $(window).load(function() {
     var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
     <% @counter = 0 %>
-    <% @jsonData['results']['tour'].each do |item| %>
+    <% @tours.each do |item| %>
       <% @counter += 1 %>
       <% if ! item['img'].empty? %>
         <% @lat = item['dest']['lat'] %>
@@ -44,10 +44,10 @@ $(window).load(function() {
 </script>
 <% end %>
 
-<% if ! @jsonData.nil? %>
+<% if ! @tours.nil? %>
   <div class="wrapper"><div class="flexslider"><ul class="slides">
 
-    <% @jsonData['results']['tour'].each do |item| %>
+    <% @tours.each do |item| %>
       <% if ! item['img'].empty? %>
 
         <!-- データを変数に格納 -->
