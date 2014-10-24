@@ -18,7 +18,7 @@ class TourController < ApplicationController
       keyword = "世界遺産 トルコ フィンランド"
     end
     dept = "TYO"
-    @jsonData = tour.get_tours(keyword, dept)
+    @tours = tour.get_tours(keyword, dept)
     p "dept    = " + dept
     p "keyword = " + keyword
   end

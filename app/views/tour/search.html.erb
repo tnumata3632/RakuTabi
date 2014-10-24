@@ -1,3 +1,13 @@
+<script>
+$(window).load(function() {
+  $('.flexslider').flexslider({
+    animation: "slide",
+    animationLoop: true,
+    controlNav: false
+  });
+});
+</script>
+
 <%= content_for(:header_for_google) do %>
 <style type="text/css">
   html { height: 100% }
@@ -16,7 +26,7 @@
     var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
     <% @counter = 0 %>
-    <% @jsonData['results']['tour'].each do |item| %>
+    <% @tours.each do |item| %>
       <% @counter += 1 %>
       <% if ! item['img'].empty? %>
         <% @lat = item['dest']['lat'] %>
@@ -34,16 +44,10 @@
 </script>
 <% end %>
 
-<% if ! @jsonData.nil? %>
-  <div class="wrapper">
+<% if ! @tours.nil? %>
+  <div class="wrapper"><div class="flexslider"><ul class="slides">
 
-    <h2>検索結果</h2>
-    
-    <div style="border: 1px solid black; height: 200px; margin: -50px 40px 50px;">
-      <div id="map_canvas" style="width:100%; height:100%"></div>
-    </div>
-
-    <% @jsonData['results']['tour'].each do |item| %>
+    <% @tours.each do |item| %>
       <% if ! item['img'].empty? %>
 
         <!-- データを変数に格納 -->
@@ -57,17 +61,26 @@
         <% @city = item['city_summary'] %>
 
         <!-- HTMLで出力 -->
-        <div class="tour">
-          <%= link_to image_tag(@img_url, :alt => @caption), @tour_url, {:target => "_blank"} %>
-          <div class="text">
-            <%= @title %><br />
-            <br />
-            <%= @city %>
+        <li>
+          <div class="tour">
+            <div class="pic">
+              <%= image_tag(@img_url, :alt => @caption) %>
+            </div>
+            <div class="text">
+              <h2><%= @city %></h2>
+              <%= @title %><br />
+              <br />
+              <%= link_to '> 詳細をみる', @tour_url, {:target => "_blank"} %>
+            </div>
           </div>
-        </div>
+        </li>
         
       <% end %>
     <% end %>
 
-  </div>
+  <ul></div> </div>
 <% end %>
+
+<div style="height: 200px; width: 966px; margin: -55px auto 100px auto;">
+  <div id="map_canvas" style="width:100%; height:100%"></div>
+</div>

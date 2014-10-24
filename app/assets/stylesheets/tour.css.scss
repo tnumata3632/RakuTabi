@@ -63,20 +63,52 @@
   -moz-transform:rotate(315deg) translate(0, -40px) scale(1.4);
   -webkit-transform:rotate(315deg) translate(0, -40px) scale(1.4);opacity:1;}
 
-/* tour */
+/* search */
 
-h2 {
-  margin: 80px 0;
+.tour {
+  display: block;
+  margin: 100px auto 0 auto;
+  height: 400px;
+  overflow: hidden;
+}
+
+.tour .pic, .tour .text {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.tour .pic {
+  height: 400px;
+  width: 600px;
+  background-color: #222;
+  overflow: hidden;
+}
+.tour .pic img {
+  margin: 0 auto;
+  height: 400px;
+  width: auto !important;
+}
+
+.tour .text {
+  padding: 30px;
+  width: 300px;
+  height: 400px;
+  background-color: #222;
+  font-size: 12px;
+  text-align: left;
+  color: #fff;
+}
+.tour .text h2 {
+  margin: 0 0 30px 0;
   padding: 0;
   font-size: 20px;
   font-weight: normal;
 }
-
-.tour {
-  margin-bottom: 100px;
+.tour .text a {
+  color: #fff;
+  text-decoration: none;
 }
-.tour .text {
-  width: 500px;
-  margin: 20px auto 0 auto;
-  font-size: 12px;
+.tour .text a:hover {
+  color: #fff;
+  text-decoration: underline;
 }
