@@ -22,7 +22,7 @@ function show() {
   </div>
   
   <div class="pic">
-    <%= link_to image_tag(@image_l.path, :size => "352x352"), '/tour?imgid=' + @image_l.image_id, {:id => "left", :onclick => "show();", data: {no_turbolink: true}} %>
+    <%= link_to image_tag(@image_l.path, :class => "circle"), '/tour?imgid=' + @image_l.image_id, {:onclick => "show();", data: {no_turbolink: true}} %>
 
     <div id="target" class="hidden">
       <div id="loading">
@@ -37,6 +37,6 @@ function show() {
       </div>
     </div>
     
-    <%= link_to image_tag(@image_r.path, :size => "352x352"), '/tour?imgid=' + @image_r.image_id, {:id => "right", :onclick => "show();", data: {no_turbolink: true}} %>
+    <%= link_to image_tag(@image_r.path, :class => "circle"), '/tour?imgid=' + @image_r.image_id, {:onclick => "show();", data: {no_turbolink: true}} %>
   </div>
 </div>

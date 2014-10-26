@@ -6,50 +6,56 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-@image = Image.new
-@image.image_id = "town00r"
-@image.keywords = "ロンドン"
-@image.path = @image.image_id + ".png"
-@image.save
+Image.create([image_id: 'age00', keywords: '古代', path: 'age00.png'])
+Image.create([image_id: 'age01', keywords: '中世', path: 'age01.png'])
+Image.create([image_id: 'age02', keywords: 'モダン', path: 'age02.png'])
+Image.create([image_id: 'animal00', keywords: '絶滅', path: 'animal00.png'])
+Image.create([image_id: 'animal01', keywords: '野生', path: 'animal01.png'])
+Image.create([image_id: 'animal02', keywords: '象', path: 'animal02.png'])
+Image.create([image_id: 'animal03', keywords: '鳥', path: 'animal03.png'])
+Image.create([image_id: 'animal04', keywords: 'パンダ', path: 'animal04.png'])
+Image.create([image_id: 'animal05', keywords: '珍獣', path: 'animal05.png'])
+Image.create([image_id: 'animal06', keywords: 'サファリ', path: 'animal06.png'])
+Image.create([image_id: 'feel00', keywords: '興奮', path: 'feel00.png'])
+Image.create([image_id: 'food00', keywords: '飲み放題', path: 'food00.png'])
+Image.create([image_id: 'food01', keywords: '旬', path: 'food01.png'])
+Image.create([image_id: 'food02', keywords: 'ワイン', path: 'food02.png'])
+Image.create([image_id: 'food03', keywords: 'ビール', path: 'food03.png'])
+Image.create([image_id: 'nature00', keywords: '山脈', path: 'nature00.png'])
+Image.create([image_id: 'nature01', keywords: '海', path: 'nature01.png'])
+Image.create([image_id: 'nature02', keywords: '空', path: 'nature02.png'])
+Image.create([image_id: 'nature03', keywords: 'オーロラ', path: 'nature03.png'])
+Image.create([image_id: 'nature04', keywords: '雪', path: 'nature04.png'])
+Image.create([image_id: 'nature05', keywords: '氷', path: 'nature05.png'])
+Image.create([image_id: 'nature06', keywords: '宇宙', path: 'nature06.png'])
+Image.create([image_id: 'person00', keywords: '子連れ', path: 'person00.png'])
+Image.create([image_id: 'person01', keywords: 'ひとり', path: 'person01.png'])
+Image.create([image_id: 'person02', keywords: 'ハネムーン', path: 'person02.png'])
+Image.create([image_id: 'scene00', keywords: '絶景', path: 'scene00.png'])
+Image.create([image_id: 'scene01', keywords: '歴史', path: 'scene01.png'])
+Image.create([image_id: 'scene02', keywords: '田舎', path: 'scene02.png'])
+Image.create([image_id: 'scene03', keywords: '都会', path: 'scene03.png'])
+Image.create([image_id: 'scene04', keywords: '世界一周', path: 'scene04.png'])
+Image.create([image_id: 'scene05', keywords: '旧市街', path: 'scene05.png'])
+Image.create([image_id: 'sports00', keywords: '観戦', path: 'sports00.png'])
+Image.create([image_id: 'sports01', keywords: 'ゴルフ', path: 'sports01.png'])
+Image.create([image_id: 'sports02', keywords: 'スノボー', path: 'sports02.png'])
+Image.create([image_id: 'sports03', keywords: 'ダイビング', path: 'sports03.png'])
+Image.create([image_id: 'sports04', keywords: 'スカイダイビング', path: 'sports04.png'])
+Image.create([image_id: 'sports05', keywords: '登山', path: 'sports05.png'])
+Image.create([image_id: 'sports06', keywords: 'テニス', path: 'sports06.png'])
+Image.create([image_id: 'spot00', keywords: '美術館', path: 'spot00.png'])
+Image.create([image_id: 'spot01', keywords: 'カジノ', path: 'spot01.png'])
+Image.create([image_id: 'spot02', keywords: 'リゾート', path: 'spot02.png'])
+Image.create([image_id: 'spot03', keywords: '祭り', path: 'spot03.png'])
+Image.create([image_id: 'spot04', keywords: 'ロケ地', path: 'spot04.png'])
+Image.create([image_id: 'spot05', keywords: '温泉', path: 'spot05.png'])
+Image.create([image_id: 'spot06', keywords: '冒険', path: 'spot06.png'])
+Image.create([image_id: 'spot07', keywords: '戦地', path: 'spot07.png'])
+Image.create([image_id: 'spot08', keywords: '少数民族', path: 'spot08.png'])
+Image.create([image_id: 'trans00', keywords: '鉄道', path: 'trans00.png'])
+Image.create([image_id: 'trans01', keywords: 'バス', path: 'trans01.png'])
+Image.create([image_id: 'trans02', keywords: '船', path: 'trans02.png'])
+Image.create([image_id: 'trans03', keywords: '気球', path: 'trans03.png'])
+Image.create([image_id: 'trans04', keywords: 'ボート', path: 'trans04.png'])
 
-@image = Image.new
-@image.image_id = "town01r"
-@image.keywords = "ストリート"
-@image.path = @image.image_id + ".png"
-@image.save
-
-@image = Image.new
-@image.image_id = "town02r"
-@image.keywords = "ニューヨーク"
-@image.path = @image.image_id + ".png"
-@image.save
-
-@image = Image.new
-@image.image_id = "town03r"
-@image.keywords = "渋滞"
-@image.path = @image.image_id + ".png"
-@image.save
-
-@image = Image.new
-@image.image_id = "nature00r"
-@image.keywords = "森林"
-@image.path = @image.image_id + ".png"
-@image.save
-
-@image = Image.new
-@image.image_id = "nature01r"
-@image.keywords = "ビーチリゾート"
-@image.path = @image.image_id + ".png"
-@image.save
-
-@image = Image.new
-@image.image_id = "nature02r"
-@image.keywords = "海 山"
-@image.path = @image.image_id + ".png"
-@image.save
-
-@image = Image.new
-@image.image_id = "nature03r"
-@image.keywords = "国立公園"
-@image.path = @image.image_id + ".png"
-@image.save

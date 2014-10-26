@@ -8,6 +8,14 @@
   margin: 80px 0;
 }
 
+.pic .circle {
+  height: 352px;
+  width: 352px;
+  border-radius: 352px;
+  -webkit-border-radius: 352px;
+  -moz-border-radius: 352px;
+}
+
 #target {
   display: inline-block;
 }
