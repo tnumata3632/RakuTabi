@@ -46,7 +46,7 @@ $(window).load(function() {
 <% end %>
 
 <% if ! @tours.nil? %>
-  <div class="wrapper"><div class="flexslider"><ul class="slides">
+  <div class="wrapper" style="margin-top: -80px;"><div class="flexslider"><ul class="slides">
 
     <% @tours.each do |item| %>
       <% if ! item['img'].empty? %>
@@ -82,6 +82,6 @@ $(window).load(function() {
   <ul></div> </div>
 <% end %>
 
-<div style="height: 200px; width: 966px; margin: -55px auto 100px auto;">
+<div style="height: 320px; width: 966px; margin: -55px auto 100px auto;">
   <div id="map_canvas" style="width:100%; height:100%"></div>
 </div>
