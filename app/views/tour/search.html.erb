@@ -33,10 +33,12 @@ $(window).load(function() {
         <% @lat = item['dest']['lat'] %>
         <% @lng = item['dest']['lng'] %>
         <% @name = item['dest']['name'] %>
-    var myLatLng = new google.maps.LatLng(<%= @lat %>,<%= @lng %>);
-    var marker = new google.maps.Marker({
-      position: myLatLng, map: map, title: '<%= @name %>', animation: google.maps.Animation.DROP
-    });
+    setTimeout(function() {
+      var myLatLng = new google.maps.LatLng(<%= @lat %>,<%= @lng %>);
+      var marker = new google.maps.Marker({
+        position: myLatLng, map: map, title: '<%= @name %>', animation: google.maps.Animation.DROP
+      });
+    }, <%= @counter %> * 500);
       <% end %>
     <% end %>
   }
