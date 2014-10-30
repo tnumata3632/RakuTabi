@@ -19,8 +19,13 @@ $(window).load(function() {
 <script type="text/javascript">
   function initialize() {
     var mapOptions = {
-      center: new google.maps.LatLng(15.000, 135.000),
-      zoom: 1,
+      center: new google.maps.LatLng(15.000, 155.000),
+      zoom: 2,
+      disableDefaultUI: true,
+      zoomControl: true,
+      zoomControlOptions: {
+        position: google.maps.ControlPosition.TOP_RIGHT
+      },
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       styles: [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"saturation":-100},{"lightness":51},{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}]
     };
@@ -33,10 +38,12 @@ $(window).load(function() {
         <% @lat = item['dest']['lat'] %>
         <% @lng = item['dest']['lng'] %>
         <% @name = item['dest']['name'] %>
-    var myLatLng = new google.maps.LatLng(<%= @lat %>,<%= @lng %>);
-    var marker = new google.maps.Marker({
-      position: myLatLng, map: map, title: '<%= @name %>', animation: google.maps.Animation.DROP
-    });
+    setTimeout(function() {
+      var myLatLng = new google.maps.LatLng(<%= @lat %>,<%= @lng %>);
+      var marker = new google.maps.Marker({
+        position: myLatLng, map: map, title: '<%= @name %>', animation: google.maps.Animation.DROP
+      });
+    }, <%= @counter %> * 500);
       <% end %>
     <% end %>
   }
@@ -46,7 +53,7 @@ $(window).load(function() {
 <% end %>
 
 <% if ! @tours.nil? %>
-  <div class="wrapper"><div class="flexslider"><ul class="slides">
+  <div class="wrapper" style="margin-top: -80px;"><div class="flexslider"><ul class="slides">
 
     <% @tours.each do |item| %>
       <% if ! item['img'].empty? %>
@@ -82,6 +89,6 @@ $(window).load(function() {
   <ul></div> </div>
 <% end %>
 
-<div style="height: 200px; width: 966px; margin: -55px auto 100px auto;">
+<div style="height: 320px; width: 966px; margin: -55px auto 100px auto;">
   <div id="map_canvas" style="width:100%; height:100%"></div>
 </div>
