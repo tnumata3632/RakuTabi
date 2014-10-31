@@ -22,4 +22,8 @@ class TourController < ApplicationController
     p "dept    = " + dept
     p "keyword = " + keyword
   end
+  def detail
+    @tourid = params[:tourid]
+
+  end
 end

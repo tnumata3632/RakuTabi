@@ -72,7 +72,7 @@ $(window).load(function() {
         <li>
           <div class="tour">
             <div class="pic">
-              <%= image_tag(@img_url, :alt => @caption) %>
+            <%= link_to image_tag(@img_url, :alt => @caption), "/detail?tourid=" + item['id'], {data: {no_turbolink: true}} %>
             </div>
             <div class="text">
               <h2><%= @city %></h2>
@@ -82,7 +82,7 @@ $(window).load(function() {
             </div>
           </div>
         </li>
-        
+
       <% end %>
     <% end %>
 
