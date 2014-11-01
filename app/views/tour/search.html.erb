@@ -32,7 +32,12 @@ $(window).load(function() {
     };
     var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
     
-    var icon = new google.maps.MarkerImage('assets/pin_a.png',
+    var iconActive = new google.maps.MarkerImage('assets/pin_a.png',
+      new google.maps.Size(50,79),
+      new google.maps.Point(0,0),
+      new google.maps.Point(25,79)
+    );
+    var iconInactive = new google.maps.MarkerImage('assets/pin_ia.png',
       new google.maps.Size(50,79),
       new google.maps.Point(0,0),
       new google.maps.Point(25,79)
@@ -47,7 +52,7 @@ $(window).load(function() {
     setTimeout(function() {
       var myLatLng = new google.maps.LatLng(<%= @lat %>,<%= @lng %>);
       var marker = new google.maps.Marker({
-        position: myLatLng, map: map, icon: icon, title: '<%= @name %>', animation: google.maps.Animation.DROP
+        position: myLatLng, map: map, icon: iconActive, title: '<%= @name %>', animation: google.maps.Animation.DROP
       });
     }, <%= @counter %> * 500);
       <% end %>
