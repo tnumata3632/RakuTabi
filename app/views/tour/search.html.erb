@@ -54,7 +54,7 @@ $(window).load(function() {
       var marker = new google.maps.Marker({
         position: myLatLng, map: map, icon: iconActive, title: '<%= @name %>', animation: google.maps.Animation.DROP
       });
-    }, <%= @counter %> * 500);
+    }, <%= @counter %> * 180);
       <% end %>
     <% end %>
   }
