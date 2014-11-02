@@ -1,11 +1,60 @@
-<%= image_tag('bg.jpg', :class => 'bg', :alt => '') %>
+<script>
+$(function(){
+  $("#jump").click(function() {
+        var speed = 500;
+        var position = document.getElementById("bottom").offsetTop; 
+        $('html, body').animate({ scrollTop: position }, speed, 'swing');
+        return false;
+  });
+});
+</script>
 
-<div id="container">
-  <div class="logo">
-    <div><%= image_tag('logo.png', :alt => 'RakuTabi') %></div>
+<div id="top">
+  <div class="top_top">
+    <div class="inner">
+      <div class="logo"><%= image_tag('logo.png', :alt => 'RakuTabi') %></div>
+      <div class="button"><%= link_to image_tag('button.png', :alt => 'Search'), '/selection' %></div>
+    </div>
+  </div>
+  <div class="top_bottom">
+    <div class="innner">
+      <div><a id="jump" href="#bottom">詳細をみる ∨</a></div>
+    </div>
+  </div>
+</div>
+
+<div id="bottom">
+  <div class="feature">
+    <div class="bottom_text">
+      <p class="title">RakuTabiとは</p>
+      <p class="text">RakuTabiは、他のサービスとはちょっと違う、今までにない旅行ツアーレコメンドサービスです。</p>
+    </div>
+    <div class="bottom_image">
+      <p class="image"><%= image_tag("feature01.png") %></p>
+    </div>
   </div>
 
-  <div class="button">
-    <div><%= link_to image_tag('button.png', :alt => 'Search'), '/selection' %>
+ <div class="feature">
+    <div class="bottom_image">
+      <p class="image"><%= image_tag("feature02.png") %></p>
+    </div>
+    <div class="bottom_text">
+      <p class="title">シンプルな検索</p>
+      <p class="text">行き先が決まっていなくても大丈夫。やらなきゃいけないことは、シンプルな条件を入力するだけです。</p>
+    </div>
   </div>
+
+  <div class="feature">
+    <div class="bottom_text">
+      <p class="title">思いつかないような場所へ</p>
+      <p class="text">その時の気分にあった、自分では思いつかないような旅行ツアーをレコメンドしてくれます。</p>
+    </div>
+    <div class="bottom_image">
+      <p class="image"><%= image_tag("feature03.png") %></p>
+    </div>
+  </div>
+</div>
+
+<div id="footer">
+  Copyright 2014 &copy; RakuTabi. All rights reserved.
 </div>
