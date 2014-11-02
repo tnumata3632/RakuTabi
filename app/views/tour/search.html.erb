@@ -17,7 +17,9 @@ $(window).load(function() {
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_APPID"] %>&sensor=false">
 </script>
 <script type="text/javascript">
+  var markerList;
   function initialize() {
+    markerList = new google.maps.MVCArray();
     var styles = [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"saturation":-100},{"lightness":51},{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}];
     var mapOptions = {
       center: new google.maps.LatLng(15.000, 155.000),
@@ -35,24 +37,33 @@ $(window).load(function() {
     var iconActive = new google.maps.MarkerImage('assets/pin_a.png',
       new google.maps.Size(50,79),
       new google.maps.Point(0,0),
-      new google.maps.Point(25,79)
+      new google.maps.Point(14,46)
     );
     var iconInactive = new google.maps.MarkerImage('assets/pin_ia.png',
       new google.maps.Size(50,79),
       new google.maps.Point(0,0),
-      new google.maps.Point(25,79)
+      new google.maps.Point(14,46)
     );
     <% @counter = 0 %>
     <% @tours.each do |item| %>
-      <% @counter += 1 %>
       <% if ! item['img'].empty? %>
+        <% @counter += 1 %>
         <% @lat = item['dest']['lat'] %>
         <% @lng = item['dest']['lng'] %>
         <% @name = item['dest']['name'] %>
     setTimeout(function() {
       var myLatLng = new google.maps.LatLng(<%= @lat %>,<%= @lng %>);
+      var zindex = <%= @counter-1 %>;
       var marker = new google.maps.Marker({
-        position: myLatLng, map: map, icon: iconActive, title: '<%= @name %>', animation: google.maps.Animation.DROP
+        position: myLatLng, map: map, icon: iconInactive, title: '<%= @name %>', animation: google.maps.Animation.DROP, zIndex: zindex
+      });
+      markerList.push(marker);
+      google.maps.event.addListener(marker, 'click', function(){
+        $('.flexslider').flexslider(marker.getZIndex());
+        markerList.forEach(function(marker){
+          marker.setIcon(iconInactive);
+        });
+        marker.setIcon(iconActive);
       });
     }, <%= @counter %> * 180);
       <% end %>
