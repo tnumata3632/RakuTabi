@@ -1,11 +1,34 @@
-<%= image_tag('bg.jpg', :class => 'bg', :alt => '') %>
+<div id="top">
+  <div class="inner">
+    <div class="logo">
+      <%= image_tag('logo.png', :alt => 'RakuTabi') %>
+    </div>
+    <div class="button">
+      <%= link_to image_tag('button.png', :alt => 'Search'), '/selection' %>
+    </div>
+  </div>
+</div>
 
-<div id="container">
-  <div class="logo">
-    <div><%= image_tag('logo.png', :alt => 'RakuTabi') %></div>
+<div id="bottom">
+  <div class="feature">
+    <p class="title">RakuTabiとは</p>
+    <p class="text">RakuTabiは、他のサービスとはちょっと違う、今までにない旅行ツアーレコメンドサービスです。</p>
+    <p class="image">[テキストにあった、なんらかのイメージがここにくる]</p>
   </div>
 
-  <div class="button">
-    <div><%= link_to image_tag('button.png', :alt => 'Search'), '/selection' %>
+ <div class="feature">
+    <p class="title">シンプルな検索</p>
+    <p class="text">行き先が決まっていなくても大丈夫。やらなきゃいけないことは、シンプルな条件を入力するだけです。</p>
+    <p class="image">[テキストにあった、なんらかのイメージがここにくる]</p>
   </div>
+
+  <div class="feature">
+    <p class="title">思いつかないような場所へ</p>
+    <p class="text">その時の気分にあった、自分では思いつかないような旅行ツアーをレコメンドしてくれます。</p>
+    <p class="image">[テキストにあった、なんらかのイメージがここにくる]</p>
+  </div>
+</div>
+
+<div id="footer">
+  Copyright 2014 &copy; RakuTabi. All rights reserved.
 </div>
