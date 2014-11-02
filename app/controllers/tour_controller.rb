@@ -22,8 +22,8 @@ class TourController < ApplicationController
     p "dept    = " + dept
     p "keyword = " + keyword
   end
-  def detail
-    @tourid = params[:tourid]
-
+    def detail
+    tour = AbroadTour.new
+    @tourDetail= tour.get_tours(id: params[:tourid])
   end
 end
