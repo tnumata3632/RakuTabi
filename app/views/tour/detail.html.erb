@@ -1,4 +1,14 @@
 <div class="wrapper">
    <h2>ツアー詳細画面</h2>
    <h2><%= @tourDetail['results']['tour'][0]['term'] %></h2>
+   <ul>
+      <li>期間:<%= @tourDetail['results']['tour'][0]['term'] %></li>
+      <li>ツアー名:<%= @tourDetail['results']['tour'][0]['title'] %></li>
+      <li>出発地名称:<%= @tourDetail['results']['tour'][0]['dept_city']['name'] %></li>
+      <li>名称:<%= @tourDetail['results']['tour'][0]['kodawari'][0]['name'] %></li>
+   </ul>
 </div>
+     <li>期間:<%= @tourDetail['results']['tour'][0]['term'] %></li>
+      <li>ツアー名:<%= @tourDetail['results']['tour'][0]['title'] %></li>
+      <li>出発地名称:<%= @tourDetail['results']['tour'][0]['dept_city']['name'] %></li>
+      <li>名称:<%= @tourDetail['results']['tour'][0]['kodawari'][0]['name'] %></li>
