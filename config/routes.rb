@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   root 'top#index'
   get 'tour' => 'tour#search'
   get 'selection' => 'tour#select'
-  get 'search' => 'tour#search'
   get 'detail' => 'tour#detail'
 
   # Example of regular route:
