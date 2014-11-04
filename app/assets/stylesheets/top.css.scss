@@ -1,34 +1,75 @@
-.bg {
-  min-height: 100%;
-  min-width: 1024px;
-  height: auto;
+#top {
+  min-width: 800px;
+  height: 800px;
   width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-@media screen and (max-width: 1024px) {
-  .bg {
-    left: 50%;
-    margin-left: -512px;
-  }
-}
-
-#container {
-  position: relative;
-  height: 100%;
-  width: 100%;
-}
-
-.logo, .button {
+  background-image: url("bg.jpg");
+  background-size: cover;
   display: table;
+}
+#top .top_top, #top .top_bottom {
+  display: table-row;
   text-align: center;
-  width: 100%;
 }
-.logo { height: 70%; }
-.button { height: 30%; }
-
-.logo > *, .button > * {
+#top .inner {
   display: table-cell;
+  vertical-align: middle;
 }
-.logo > * { vertical-align: middle; }
+#top .top_top {
+  height: 95%;
+}
+#top .top_bottom {
+  height: 5%;
+}
+#top .logo {
+  margin-bottom: 130px;
+}
+#top a {
+  color: #fff;
+  text-decoration: none;
+}
+#top a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+#bottom {
+  margin: 0 auto;
+  display: table;
+}
+#bottom .feature {
+  display: table-row;
+  text-align: left;
+}
+#bottom .bottom_text, #bottom .bottom_image {
+  padding-top: 150px;
+  display: table-cell;
+  vertical-align: top;
+}
+#bottom .bottom_text {
+  width: 400px;
+}
+#bottom .title {
+  margin: 0 0 20px 0;
+  font-size: 32px;
+}
+#bottom .text {
+  margin: 0 0 100px 0;
+  font-size: 15px;
+  line-height: 200%;
+}
+#bottom .image {
+  margin: 0 auto;
+  width: 300px;
+  height: 300px;
+}
+#bottom .image img {
+  width: 300px;
+  height: 300px;
+}
+
+#footer {
+  padding: 150px 0 20px 0;
+  text-align: center;
+  font-size: 13px;
+  color: #999;
+}
