@@ -4,6 +4,9 @@ $(window).load(function() {
     animation: "slide",
     animationLoop: true,
     controlNav: false,
+    start : function(slider){
+      setActive(slider.currentSlide);
+    },
     after : function(slider){
       setActive(slider.currentSlide);
     },
