@@ -7,15 +7,16 @@ class AbroadTour
     @appid = ENV["ABROAD_APPID"]
   end
 
-  def get_tours(keyword, dept="TYO", start=1, count=10)
+  def get_tours_by_keyword(keyword, dept="TYO", start=1, count=10)
     # 最初の100件取得
-    tours = get_tours_all(keyword, dept, 1, COUNT)
+    # tours = get_tours_all(keyword, dept, 1, COUNT)
+    tours = get_tours(keyword: keyword, dept: dept, start: 1, count: COUNT)
     resAvailable = tours["results"]["results_available"].to_i
     resReturned = tours["results"]["results_returned"].to_i
     tourArray = tours["results"]["tour"]
     # 検索結果が100件以上の場合、最後の100件を取得し最初の100件とマージする
     if resAvailable > resReturned
-      toursTail = get_tours_all(keyword, dept, resAvailable>COUNT*2 ? resAvailable-COUNT : COUNT+1, COUNT)
+      toursTail = get_tours(keyword: keyword, dept: dept, start: resAvailable>COUNT*2 ? resAvailable-COUNT : COUNT+1, count: COUNT)
       tourArray.concat(toursTail["results"]["tour"])
     end
     # 結果から、同一の宿泊地要約のツアーをhashで除外する
@@ -36,12 +37,13 @@ class AbroadTour
     return hash.values.sample(count)
   end
 
-  def get_tours_all(keyword, dept="TYO", start=1, count=10)
+  def get_tours(id: nil, keyword: nil, dept: "TYO", start: 1, count: 10)
     httpClient = HTTPClient.new
     jsonData = nil
     begin
       data = httpClient.get_content(API_URL, {
         "key" => @appid,
+        "id" => id,
         "keyword" => keyword,
         "dept" => dept,
         "format" => FORMAT,
@@ -54,5 +56,5 @@ class AbroadTour
       rescue HTTPClient::TimeoutError => e
     end
     return jsonData
-  end 
+  end
 end
