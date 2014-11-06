@@ -4,6 +4,7 @@
 
     <!-- HTMLで出力 -->
   <% if ! tour.nil? %>
+  <% if ! tour['img'][0].nil? %>
      <h2><%= tour['title'] %></h2>
      <%= link_to image_tag(tour['img'][0]['l']),
        tour['urls']['pc'],
@@ -15,5 +16,6 @@
      *旅行代金:<%= tour['price']['all_month']['min'] %>～
            <%= tour['price']['all_month']['max'] %>円<br>
     <%= link_to '詳細はこちら', tour['urls']['pc'], {:target => "_blank"} %>
+  <% end %>
   <% end %>
 </div>
