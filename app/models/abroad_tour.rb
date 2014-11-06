@@ -6,6 +6,7 @@ class AbroadTour
   COUNT = 100
   CACHE_EXPIRE = 1.hour
 
+  # futureの画面間受け渡し用のhash
   @@futures = {}
 
   def initialize
@@ -14,52 +15,56 @@ class AbroadTour
   end
 
   def preload_tours(keyword, dept="TYO", start=1, count=10)
-    if (Rails.cache.exist?(keyword))
-      return nil
+    # キャッシュまたはfutureが既に存在する場合は、何もしない
+    # 存在しない場合は、futureでAPIを実行し、そのfutureをクラス変数のhashにセットする
+    if (Rails.cache.exist?(keyword) || @@futures.has_key?(keyword + @sessionId))
+      return
     end
     future = Concurrent::Future.new {
-      get_tours_by_keyword(keyword, dept="TYO", start=1, count=10)
+      get_tours_by_keyword(keyword, dept, start, count)
     }.execute
-    # return future
     @@futures.store(keyword + @sessionId, future)
   end
 
   def get_random_tours_by_keyword(keyword, dept="TYO", start=1, count=10)
+    # キャッシュに存在する場合は、そのhashを利用する
     toursHash = Rails.cache.fetch(keyword, expires_in: CACHE_EXPIRE) do
+      # キャッシュが存在しない場合は、futureがあればfutureから取得し、無い場合はAPI呼び出しを行う。
+      # 実行結果はキャッシュに登録される。
       future = @@futures.delete(keyword + @sessionId)
       if (future != nil )
         puts "by future"
+        # futureが処理中の場合は、処理が終わるまでブロックされる
         future.value
       else
         puts "no cache"
-        get_tours_by_keyword(keyword, dept="TYO", start=1, count=10)
+        get_tours_by_keyword(keyword, dept, start, count)
       end
     end
     # 引数で指定された件数のツアー情報を配列で返す
     # return hash.values[(start-1)...(start-1+count)]
     # Sprint4暫定ロジック。ランダムに10個返す
-    # return hash.values.sample(count)
     return toursHash.values.sample(count)
   end
 
   def get_tours_by_keyword(keyword, dept="TYO", start=1, count=10)
-    # 最初の100件取得
+    # 定数で指定した件数を1件目から取得
     tours = get_tours(keyword: keyword, dept: dept, start: 1, count: COUNT)
     resAvailable = tours["results"]["results_available"].to_i
     resReturned = tours["results"]["results_returned"].to_i
     tourArray = tours["results"]["tour"]
-    # 検索結果が100件以上の場合、最後の100件を取得し最初の100件とマージする
+    # 検索結果が取得件数以上の場合、定数で指定された件数分末尾から取得しマージする
     if resAvailable > resReturned
       toursTail = get_tours(keyword: keyword, dept: dept, start: resAvailable>COUNT*2 ? resAvailable-COUNT : COUNT+1, count: COUNT)
       tourArray.concat(toursTail["results"]["tour"])
     end
-    # 結果から、同一の宿泊地要約のツアーをhashで除外する
+    # 結果から、重複するツアーをhashで除外する
     hash = Hash.new
     tourArray.each{|item|
-      # key = item["city_summary"]
       if item["dest"]["lat"].empty?
         next
       end
+      # 重複排除のkeyに緯度・経度を利用。地図のマーカが重ならないように。
       key = item["dest"]["lat"].to_s + "," + item["dest"]["lng"].to_s
       unless hash.has_key?(key)
         hash.store(key, item)

@@ -7,6 +7,7 @@ class TourController < ApplicationController
       images = Image.all.sample(2)
     end while (images[0].image_id == images[1].image_id)
 
+    # 対象のツアー情報を事前ロードする
     tour = AbroadTour.new
     images.each do |item|
       tour.preload_tours(item.keywords)
@@ -29,7 +30,8 @@ class TourController < ApplicationController
     p "dept    = " + dept
     p "keyword = " + keyword
   end
-    def detail
+
+  def detail
     tour = AbroadTour.new
     @tourDetail= tour.get_tours(id: params[:tourid])
   end
