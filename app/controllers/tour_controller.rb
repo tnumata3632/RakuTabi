@@ -18,12 +18,12 @@ class TourController < ApplicationController
       keyword = "世界遺産 トルコ フィンランド"
     end
     dept = "TYO"
-    @tours = tour.get_tours(keyword, dept)
+    @tours = tour.get_tours_by_keyword(keyword, dept)
     p "dept    = " + dept
     p "keyword = " + keyword
   end
-  def detail
-    @tourid = params[:tourid]
-
+    def detail
+    tour = AbroadTour.new
+    @tourDetail= tour.get_tours(id: params[:tourid])
   end
 end
