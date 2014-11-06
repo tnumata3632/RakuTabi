@@ -1,9 +1,16 @@
 class TourController < ApplicationController
+  before_filter :set_request
+
   def select
     # get diffrent two images
     begin
       images = Image.all.sample(2)
     end while (images[0].image_id == images[1].image_id)
+
+    tour = AbroadTour.new
+    images.each do |item|
+      tour.preload_tours(item.keywords)
+    end
 
     @image_l = images[0]
     @image_r = images[1]
@@ -18,7 +25,7 @@ class TourController < ApplicationController
       keyword = "世界遺産 トルコ フィンランド"
     end
     dept = "TYO"
-    @tours = tour.get_tours_by_keyword(keyword, dept)
+    @tours = tour.get_random_tours_by_keyword(keyword, dept)
     p "dept    = " + dept
     p "keyword = " + keyword
   end
@@ -26,4 +33,9 @@ class TourController < ApplicationController
     tour = AbroadTour.new
     @tourDetail= tour.get_tours(id: params[:tourid])
   end
+
+  private
+    def set_request
+      Thread.current[:request] = request
+    end
 end
