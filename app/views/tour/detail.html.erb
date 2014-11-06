@@ -1,14 +1,21 @@
 <div class="wrapper">
-   <h2><%= @tourDetail['results']['tour'][0]['title'] %></h2>
-     <%= link_to image_tag(@tourDetail['results']['tour'][0]['img'][0]['l']),
-       @tourDetail['results']['tour'][0]['urls']['pc'],
-       {:target => "_blank",
-       :alt =>@tourDetail['results']['tour'][0]['img'][0]['caption']} %><br>
-     *国名:<%= @tourDetail['results']['tour'][0]['dest']['country']['name'] %><br>
-     *目的地:<%= @tourDetail['results']['tour'][0]['dest']['name'] %><br>
-     *期間:<%= @tourDetail['results']['tour'][0]['term'] %>日間<br>
-     *旅行代金:<%= @tourDetail['results']['tour'][0]['price']['all_month']['min'] %>～
-           <%= @tourDetail['results']['tour'][0]['price']['all_month']['max'] %>円<br>
-    <%= link_to '詳細はこちら', @tourDetail['results']['tour'][0]['urls']['pc'], {:target => "_blank"} %>
-</div>
+  <!-- データを変数に格納 -->
+  <% tour = @tourDetail['results']['tour'][0] %>
 
+    <!-- HTMLで出力 -->
+  <% if ! tour.nil? %>
+  <% if ! tour['img'][0].nil? %>
+     <h2><%= tour['title'] %></h2>
+     <%= link_to image_tag(tour['img'][0]['l']),
+       tour['urls']['pc'],
+       {:target => "_blank",
+       :alt =>tour['img'][0]['caption']} %><br>
+     *国名:<%= tour['dest']['country']['name'] %><br>
+     *目的地:<%= tour['dest']['name'] %><br>
+     *期間:<%= tour['term'] %>日間<br>
+     *旅行代金:<%= tour['price']['all_month']['min'] %>～
+           <%= tour['price']['all_month']['max'] %>円<br>
+    <%= link_to '詳細はこちら', tour['urls']['pc'], {:target => "_blank"} %>
+  <% end %>
+  <% end %>
+</div>
