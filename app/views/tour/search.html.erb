@@ -9,7 +9,7 @@ $(window).load(function() {
     },
     after : function(slider){
       setActive(slider.currentSlide);
-    },
+    }
   });
 });
 </script>
@@ -24,6 +24,7 @@ $(window).load(function() {
 </script>
 <script type="text/javascript">
   var markerList;
+  var markerActive;
   var iconActive;
   var iconInactive;
   function initialize() {
@@ -52,6 +53,9 @@ $(window).load(function() {
       new google.maps.Point(0,0),
       new google.maps.Point(14,46)
     );
+    markerActive= new google.maps.Marker({
+      map: map, icon: iconActive, zIndex: 99, visible: false
+    });
     <% @counter = 0 %>
     <% @tours.each do |item| %>
       <% if ! item['img'].empty? %>
@@ -68,10 +72,13 @@ $(window).load(function() {
       markerList.push(marker);
       google.maps.event.addListener(marker, 'click', function(){
         $('.flexslider').flexslider(marker.getZIndex());
+        moveActiveMarker(marker);
         markerList.forEach(function(marker){
           marker.setIcon(iconInactive);
         });
         marker.setIcon(iconActive);
+        map.panTo(marker.getPosition());
+        map.setZoom(4);
       });
     }, <%= @counter %> * 180);
       <% end %>
@@ -80,9 +87,21 @@ $(window).load(function() {
 
   function setActive(current) {
     markerList.forEach(function(marker){
-      marker.setIcon(iconInactive);
-      if (marker.getZIndex() == current) marker.setIcon(iconActive);
+      if (marker.getZIndex() == current) {
+        moveActiveMarker(marker);
+        marker.setIcon(iconActive);
+        map = marker.getMap();
+        map.panTo(marker.getPosition());
+      } else {
+        marker.setIcon(iconInactive);
+      }
     });
+  }
+
+  function moveActiveMarker(marker) {
+    markerActive.setPosition(marker.getPosition());
+    markerActive.setTitle(marker.getTitle());
+    markerActive.setVisible(true);
   }
 
   google.maps.event.addDomListener(window, 'load', initialize);
