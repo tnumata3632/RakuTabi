@@ -69,3 +69,31 @@ $(function(){
 <div id="footer">
   Copyright 2014 &copy; RakuTabi. All rights reserved.
 </div>
+
+<div id="totop"><a href="#"><img src="/assets/totop.png"></a></div>
+
+<script>
+$(function() {
+  // 最初はhide
+  $('#totop').hide();
+  
+  // スクロールに応じてfadein/fadeout
+  $(window).scroll(function(){
+    if($(this).scrollTop() > 300) {
+      $('#totop').fadeIn();
+    } else {
+      $('#totop').fadeOut();
+    }
+  
+  });
+  
+  // クリックされたら上へ
+  $('#totop a').click(function() {
+      $('body, html').animate({
+          scrollTop: 0
+      }, 500);
+      return false;
+  });
+});
+</script>
+<!-- /totop-->
