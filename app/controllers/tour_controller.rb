@@ -33,7 +33,7 @@ class TourController < ApplicationController
 
   def detail
     tour = AbroadTour.new
-    @tourDetail= tour.get_tours(id: params[:tourid])
+    @tourDetail= tour.get_tour(id: params[:tourid])
   end
 
   private

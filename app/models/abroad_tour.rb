@@ -74,7 +74,17 @@ class AbroadTour
     return hash
   end
 
-  def get_tours(id: nil, keyword: nil, dept: "TYO", start: 1, count: 10)
+  def get_tours_by_priceterm(minPrice: nil, maxPrice: nil, minTerm: nil, maxTerm: nil)
+    return get_tours(minPrice: minPrice, maxPrice: maxPrice, minTerm: minTerm, maxTerm: maxTerm, adType: 'F')
+  end
+ 
+  def get_tour(id: id)
+    return get_tours(id: id)['results']['tour'][0]
+  end
+
+  private
+  def get_tours(id: nil, keyword: nil, dept: "TYO", start: 1, count: 10,
+                minPrice: nil, maxPrice: nil, minTerm: nil, maxTerm: nil, adType: nil)
     httpClient = HTTPClient.new
     jsonData = nil
     begin
@@ -84,11 +94,15 @@ class AbroadTour
         "keyword" => keyword,
         "dept" => dept,
         "format" => FORMAT,
+        "price_min" => minPrice, "price_max" => maxPrice,
+        "term_min" => minTerm, "term_max" => maxTerm,
+        "ad_type" => adType,
         "start" => start,
         "count" => count
       })
       jsonData = JSON.parse data
-      Rails.logger.debug(jsonData.inspect)
+      Rails.logger.debug('<results_available> = ' + jsonData['results']['results_available'])
+      Rails.logger.debug('<results_returned>  = ' + jsonData['results']['results_returned'])
       rescue HTTPClient::BadResponseError => e
       rescue HTTPClient::TimeoutError => e
     end
