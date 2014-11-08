@@ -67,6 +67,13 @@
   height: 300px;
 }
 
+#button_top, #button_buttom { width: 800px; }
+#button_top { margin: 0 auto 0 auto; }
+#button_buttom { margin: 150px auto 0 auto; }
+.button_left, .button_right { width: 400px; text-align: center; }
+.button_left { float: left; }
+.button_right { float: right; }
+
 #footer {
   padding: 150px 0 20px 0;
   text-align: center;

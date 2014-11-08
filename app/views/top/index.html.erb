@@ -13,7 +13,11 @@ $(function(){
   <div class="top_top">
     <div class="inner">
       <div class="logo"><%= image_tag('logo.png', :alt => 'RakuTabi') %></div>
-      <div class="button"><%= link_to image_tag('button.png', :alt => 'Search'), '/selection' %></div>
+
+      <div id="button_top">
+        <div class="button_left"><%= link_to image_tag('button_top_left.png', :alt => '今の気分で選ぶ'), '/selection' %></div>
+        <div class="button_right"><%= link_to image_tag('button_top_right.png', :alt => '予算と日程で選ぶ'), '#' %></div>
+      </div>
     </div>
   </div>
   <div class="top_bottom">
@@ -55,7 +59,7 @@ $(function(){
     <div class="bottom_text">
       <p class="title">思いつかないような場所へ</p>
       <p class="text">
-        たったそれだけで、その時の気分にあった、自分では思いつかないような旅行ツアーをレコメンドしてくれます。<br />
+        たったそれだけで、自分では思いつかないような旅行ツアーをレコメンドしてくれます。<br />
         世界はひろい。<br />
         RakuTabiで新しい発見をしてください。
       </p>
@@ -64,6 +68,11 @@ $(function(){
       <p class="image"><%= image_tag("feature03.png") %></p>
     </div>
   </div>
+</div>
+
+<div id="button_buttom">
+  <div class="button_left"><%= link_to image_tag('button_bottom_left.png', :alt => '今の気分で選ぶ'), '/selection' %></div>
+  <div class="button_right"><%= link_to image_tag('button_bottom_right.png', :alt => '予算と日程で選ぶ'), '#' %></div>
 </div>
 
 <div id="footer">
