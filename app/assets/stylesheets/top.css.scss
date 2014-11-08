@@ -67,12 +67,25 @@
   height: 300px;
 }
 
-#button_top, #button_buttom { width: 800px; }
+#button_top, #button_bottom { width: 800px; }
 #button_top { margin: 0 auto 0 auto; }
-#button_buttom { margin: 150px auto 0 auto; }
+#button_bottom { margin: 150px auto 0 auto; }
 .button_left, .button_right { width: 400px; text-align: center; }
 .button_left { float: left; }
 .button_right { float: right; }
+#button_top .button_left a, #button_top .button_right a, #button_bottom .button_left a, #button_bottom .button_right a {
+  display: block;
+  width: 370px;
+  height: 60px;
+  text-indent: -9999px;
+}
+#button_top .button_left a { background-image: url(button_top_feeling.png); }
+#button_top .button_right a { background-image: url(button_top_pricedays.png); }
+#button_bottom .button_left a { background-image: url(button_bottom_feeling.png); }
+#button_bottom .button_right a { background-image: url(button_bottom_pricedays.png); }
+#button_top .button_left a:hover, #button_top .button_right a:hover, #button_bottom .button_left a:hover, #button_bottom .button_right a:hover {
+  background-position: left bottom;
+}
 
 #footer {
   padding: 150px 0 20px 0;
