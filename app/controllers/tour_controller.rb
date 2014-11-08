@@ -40,4 +40,7 @@ class TourController < ApplicationController
     def set_request
       Thread.current[:request] = request
     end
+
+  def priceterm
+  end
 end
