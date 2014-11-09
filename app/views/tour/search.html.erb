@@ -4,6 +4,9 @@ $(window).load(function() {
     animation: "slide",
     animationLoop: true,
     controlNav: false,
+    pausePlay: true,
+    pauseText: "&nbsp;スライドショーを停止",
+    playText: "&nbsp;スライドショーを再生",
     start : function(slider){
       setActive(slider.currentSlide);
     },
@@ -109,7 +112,13 @@ $(window).load(function() {
 <% end %>
 
 <% if ! @tours.nil? %>
-  <div class="wrapper"><div class="flexslider"><ul class="slides">
+  <div class="wrapper">
+
+    <div class="icon_search">
+      <div class="icon_refresh"><a href="javascript:location.reload(true);">&nbsp;別のレコメンドを表示</a></div>
+    </div>  
+
+    <div class="flexslider"><ul class="slides">
 
     <% @tours.each do |item| %>
       <% if ! item['img'].empty? %>
@@ -142,9 +151,11 @@ $(window).load(function() {
       <% end %>
     <% end %>
 
-  <ul></div> </div>
+  <ul></div>
+
+  </div>
 <% end %>
 
-<div style="height: 360px; width: 966px; margin: -54px auto 100px auto;">
+<div style="height: 300px; width: 966px; margin: 404px auto 35px auto;">
   <div id="map_canvas" style="width:100%; height:100%"></div>
 </div>

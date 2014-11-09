@@ -1,3 +1,8 @@
+.icon_index { display: inline-block; }
+.icon_index a { width: auto; height: 16px; line-height: 16px; vertical-align: top; opacity: 0.8; z-index: 10; cursor: pointer; color: #fff; text-decoration: none !important; position: absolute; top: 30px; right: 30px; z-index: 10; }
+.icon_index a:before  { font-family: "Glyphter"; font-size: 13px; display: inline-block; content: 'D'; }
+.icon_index a:hover  { opacity: 1; }
+
 #top {
   min-width: 800px;
   height: 800px;
@@ -15,10 +20,10 @@
   vertical-align: middle;
 }
 #top .top_top {
-  height: 95%;
+  height: 100%;
 }
 #top .top_bottom {
-  height: 5%;
+  height: 0;
 }
 #top .logo {
   margin-bottom: 130px;

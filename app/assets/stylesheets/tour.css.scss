@@ -1,6 +1,24 @@
+@font-face {
+    font-family: 'Glyphter';
+    src: url('/assets/Glyphter.eot');
+    src: url('/assets/Glyphter?#iefix') format('embedded-opentype'),
+         url('/assets/Glyphter.woff') format('woff'),
+         url('/assets/Glyphter.ttf') format('truetype'),
+         url('/assets/Glyphter.svg#Glyphter') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .wrapper {
   text-align: center;
 }
+
+.icon_select, .icon_search  { margin: 35px auto 0 auto; }
+.icon_search { width: 966px; text-align: right; }
+.icon_refresh { display: inline-block; }
+.icon_refresh a { width: auto; height: 16px; line-height: 16px; vertical-align: top; opacity: 0.8; z-index: 10; cursor: pointer; color: #333; text-decoration: none; }
+.icon_refresh a:before  { font-family: "Glyphter"; font-size: 13px; display: inline-block; content: 'A'; }
+.icon_refresh a:hover  { opacity: 1; }
 
 /* select */
 
@@ -75,7 +93,7 @@
 
 .tour {
   display: block;
-  margin: 20px auto 0 auto;
+  margin: 0 auto;
   height: 400px;
   overflow: hidden;
 }
