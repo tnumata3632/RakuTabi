@@ -1,3 +1,8 @@
+.icon_index { display: inline-block; }
+.icon_index a { width: auto; height: 16px; line-height: 16px; vertical-align: top; opacity: 0.8; z-index: 10; cursor: pointer; color: #fff; text-decoration: none !important; position: absolute; top: 55px; right: 70px; z-index: 10; }
+.icon_index a:before  { font-family: "Glyphter"; font-size: 13px; display: inline-block; content: 'D'; }
+.icon_index a:hover  { opacity: 1; }
+
 #top {
   min-width: 800px;
   height: 800px;
@@ -15,10 +20,10 @@
   vertical-align: middle;
 }
 #top .top_top {
-  height: 95%;
+  height: 100%;
 }
 #top .top_bottom {
-  height: 5%;
+  height: 0;
 }
 #top .logo {
   margin-bottom: 130px;
@@ -67,6 +72,20 @@
   height: 300px;
 }
 
+#button_top, #button_bottom { width: 800px; }
+#button_top { margin: 0 auto 0 auto; }
+#button_bottom { margin: 150px auto 0 auto; }
+#button_top a, #button_bottom a {
+  margin: 0 auto;
+  display: block;
+  width: 400px;
+  height: 60px;
+  text-indent: -9999px;
+}
+#button_top a { background-image: url(button_top.png); }
+#button_bottom a { background-image: url(button_bottom.png); }
+#button_top a:hover, #button_bottom a:hover { background-position: left bottom; }
+
 #footer {
   padding: 150px 0 20px 0;
   text-align: center;
@@ -76,6 +95,6 @@
 
 #totop {
   position: fixed;
-  right: 30px;
-  bottom: 30px;
+  right: 70px;
+  bottom: 55px;
 }
