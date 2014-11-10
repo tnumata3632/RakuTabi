@@ -1,5 +1,5 @@
 .icon_index { display: inline-block; }
-.icon_index a { width: auto; height: 16px; line-height: 16px; vertical-align: top; opacity: 0.8; z-index: 10; cursor: pointer; color: #fff; text-decoration: none !important; position: absolute; top: 30px; right: 30px; z-index: 10; }
+.icon_index a { width: auto; height: 16px; line-height: 16px; vertical-align: top; opacity: 0.8; z-index: 10; cursor: pointer; color: #fff; text-decoration: none !important; position: absolute; top: 55px; right: 70px; z-index: 10; }
 .icon_index a:before  { font-family: "Glyphter"; font-size: 13px; display: inline-block; content: 'D'; }
 .icon_index a:hover  { opacity: 1; }
 
@@ -75,22 +75,16 @@
 #button_top, #button_bottom { width: 800px; }
 #button_top { margin: 0 auto 0 auto; }
 #button_bottom { margin: 150px auto 0 auto; }
-.button_left, .button_right { width: 400px; text-align: center; }
-.button_left { float: left; }
-.button_right { float: right; }
-#button_top .button_left a, #button_top .button_right a, #button_bottom .button_left a, #button_bottom .button_right a {
+#button_top a, #button_bottom a {
+  margin: 0 auto;
   display: block;
-  width: 370px;
+  width: 400px;
   height: 60px;
   text-indent: -9999px;
 }
-#button_top .button_left a { background-image: url(button_top_feeling.png); }
-#button_top .button_right a { background-image: url(button_top_pricedays.png); }
-#button_bottom .button_left a { background-image: url(button_bottom_feeling.png); }
-#button_bottom .button_right a { background-image: url(button_bottom_pricedays.png); }
-#button_top .button_left a:hover, #button_top .button_right a:hover, #button_bottom .button_left a:hover, #button_bottom .button_right a:hover {
-  background-position: left bottom;
-}
+#button_top a { background-image: url(button_top.png); }
+#button_bottom a { background-image: url(button_bottom.png); }
+#button_top a:hover, #button_bottom a:hover { background-position: left bottom; }
 
 #footer {
   padding: 150px 0 20px 0;
@@ -101,6 +95,6 @@
 
 #totop {
   position: fixed;
-  right: 30px;
-  bottom: 30px;
+  right: 70px;
+  bottom: 55px;
 }
