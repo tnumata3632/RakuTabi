@@ -20,7 +20,7 @@ class AbroadTour
     if (Rails.cache.exist?(keyword) || @@futures.has_key?(keyword + @sessionId))
       return
     end
-    future = Concurrent::Future.new {
+    future = Concurrent::Future.new(task: true) {
       get_tours_by_keyword(keyword, dept, start, count)
     }.execute
     @@futures.store(keyword + @sessionId, future)
@@ -40,6 +40,10 @@ class AbroadTour
         puts "no cache"
         get_tours_by_keyword(keyword, dept, start, count)
       end
+    end
+    if (toursHash.nil?)
+      Rails.cache.delete(keyword)
+      return nil 
     end
     # 引数で指定された件数のツアー情報を配列で返す
     # return hash.values[(start-1)...(start-1+count)]
