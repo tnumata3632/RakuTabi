@@ -14,6 +14,10 @@ $(window).load(function() {
       setActive(slider.currentSlide);
     }
   });
+  $('.flex-pause, .flex-prev, .flex-next').click(function () {
+    map = markerActive.getMap();
+    map.setZoom(2);
+  });
 });
 </script>
 
@@ -59,6 +63,7 @@ $(window).load(function() {
     markerActive= new google.maps.Marker({
       map: map, icon: iconActive, zIndex: 99, visible: false
     });
+    <% if ! @tours.nil? %>
     <% @counter = 0 %>
     <% @tours.each do |item| %>
       <% if ! item['img'].empty? %>
@@ -85,6 +90,7 @@ $(window).load(function() {
       });
     }, <%= @counter %> * 180);
       <% end %>
+    <% end %>
     <% end %>
   }
 
