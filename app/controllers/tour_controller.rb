@@ -36,6 +36,9 @@ class TourController < ApplicationController
     @tourDetail= tour.get_tours(id: params[:tourid])
   end
 
+  def weather
+  end
+
   private
     def set_request
       Thread.current[:request] = request
