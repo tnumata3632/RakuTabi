@@ -14,10 +14,11 @@
 }
 
 .icon_select, .icon_search  { margin: 35px auto 0 auto; }
+.icon_select i, .icon_search i, .flex-pauseplay i  { position:relative; top:-3px; }
 .icon_search { width: 966px; text-align: right; }
-.icon_refresh { display: inline-block; }
-.icon_refresh a { width: auto; height: 16px; line-height: 16px; vertical-align: top; opacity: 0.8; z-index: 10; cursor: pointer; color: #333; text-decoration: none; }
-.icon_refresh a:before  { font-family: "Glyphter"; font-size: 13px; display: inline-block; content: 'A'; }
+.icon_back { float: left; }
+.icon_back, .icon_refresh { display: inline-block; }
+.icon_back a, .icon_refresh a { width: auto; height: 16px; line-height: 16px; vertical-align: top; opacity: 0.8; z-index: 10; cursor: pointer; color: #333; text-decoration: none; }
 .icon_refresh a:hover  { opacity: 1; }
 
 /* select */
@@ -125,18 +126,39 @@
   color: #fff;
 }
 .tour .text h2 {
-  margin: 0 0 30px 0;
+  margin: 0 0 20px 0;
   padding: 0;
   font-size: 20px;
   font-weight: normal;
 }
-.tour .text a {
+.tour .text .title {
+  margin: 0 0 5px 0;
+  padding: 0;
+  font-size: 12px;
+  font-weight: normal;
+  color: #fff;
+}
+.tour .text .weather {
+  font-size: 12px;
+  color: #fff;
+}
+.tour .text .external_link a {
   color: #fff;
   text-decoration: none;
+  font-size: 12px;
 }
-.tour .text a:hover {
+.tour .text .external_link a:hover {
   color: #fff;
   text-decoration: underline;
+}
+.tour .text .internal_link a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+}
+.tour .text .internal_link a:hover {
+  color: #fff;
+  text-decoration: none;
 }
 
 /* detail */
