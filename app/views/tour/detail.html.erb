@@ -6,7 +6,7 @@
   </div>
 
   <div class="tour">
-    <% tour = @tourDetail['results']['tour'][0] %>
+    <% tour = @tourDetail %>
     <!-- HTMLで出力 -->
     <% if ! tour.nil? %>
       <% if ! tour['img'][0].nil? %>
