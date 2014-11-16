@@ -23,7 +23,7 @@
 /* Icon Fonts
 *********************************/
 /* Font-face Icons */
-@font-face {
+/*@font-face {
 	font-family: 'flexslider-icon';
 	src:url('/assets/flexslider-icon.eot');
 	src:url('/assets/flexslider-icon.eot?#iefix') format('embedded-opentype'),
@@ -32,6 +32,16 @@
 		url('/assets/flexslider-icon.svg#flexslider-icon') format('svg');
 	font-weight: normal;
 	font-style: normal;
+}*/
+@font-face {
+    font-family: 'Glyphter';
+    src: url('/assets/Glyphter.eot');
+    src: url('/assets/Glyphter?#iefix') format('embedded-opentype'),
+         url('/assets/Glyphter.woff') format('woff'),
+         url('/assets/Glyphter.ttf') format('truetype'),
+         url('/assets/Glyphter.svg#Glyphter') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 /* FlexSlider Necessary Styles
@@ -72,10 +82,11 @@ html[xmlns] .slides {display: block;}
 .flex-direction-nav a.flex-next:before  { content: ''; }
 
 /* Pause/Play */
-.flex-pauseplay a { display: block; width: 20px; height: 20px; position: absolute; bottom: 5px; left: 10px; opacity: 0.8; z-index: 10; overflow: hidden; cursor: pointer; color: #000; }
-.flex-pauseplay a:before  { font-family: "flexslider-icon"; font-size: 20px; display: inline-block; content: '\f004'; }
+.flex-pauseplay { margin-top: -421px; margin-right: -450px; }
+.flex-pauseplay a { width: auto; height: 16px; line-height: 16px; vertical-align: top; opacity: 0.8; z-index: 10; cursor: pointer; color: #333; }
+.flex-pauseplay a:before  { font-family: "Glyphter"; font-size: 13px; display: inline-block; content: 'C'; }
 .flex-pauseplay a:hover  { opacity: 1; }
-.flex-pauseplay a.flex-play:before { content: '\f003'; }
+.flex-pauseplay a.flex-play:before { content: 'B'; }
 
 /* Control Nav */
 .flex-control-nav {width: 100%; position: absolute; bottom: -40px; text-align: center;}

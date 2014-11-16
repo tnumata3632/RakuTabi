@@ -4,12 +4,19 @@ $(window).load(function() {
     animation: "slide",
     animationLoop: true,
     controlNav: false,
+    pausePlay: true,
+    pauseText: "&nbsp;スライドショーを停止",
+    playText: "&nbsp;スライドショーを再生",
     start : function(slider){
       setActive(slider.currentSlide);
     },
     after : function(slider){
       setActive(slider.currentSlide);
-    },
+    }
+  });
+  $('.flex-pause, .flex-prev, .flex-next').click(function () {
+    map = markerActive.getMap();
+    map.setZoom(2);
   });
 });
 </script>
@@ -24,6 +31,7 @@ $(window).load(function() {
 </script>
 <script type="text/javascript">
   var markerList;
+  var markerActive;
   var iconActive;
   var iconInactive;
   function initialize() {
@@ -52,6 +60,10 @@ $(window).load(function() {
       new google.maps.Point(0,0),
       new google.maps.Point(14,46)
     );
+    markerActive= new google.maps.Marker({
+      map: map, icon: iconActive, zIndex: 99, visible: false
+    });
+    <% if ! @tours.nil? %>
     <% @counter = 0 %>
     <% @tours.each do |item| %>
       <% if ! item['img'].empty? %>
@@ -68,21 +80,37 @@ $(window).load(function() {
       markerList.push(marker);
       google.maps.event.addListener(marker, 'click', function(){
         $('.flexslider').flexslider(marker.getZIndex());
+        moveActiveMarker(marker);
         markerList.forEach(function(marker){
           marker.setIcon(iconInactive);
         });
         marker.setIcon(iconActive);
+        map.panTo(marker.getPosition());
+        map.setZoom(4);
       });
     }, <%= @counter %> * 180);
       <% end %>
+    <% end %>
     <% end %>
   }
 
   function setActive(current) {
     markerList.forEach(function(marker){
-      marker.setIcon(iconInactive);
-      if (marker.getZIndex() == current) marker.setIcon(iconActive);
+      if (marker.getZIndex() == current) {
+        moveActiveMarker(marker);
+        marker.setIcon(iconActive);
+        map = marker.getMap();
+        map.panTo(marker.getPosition());
+      } else {
+        marker.setIcon(iconInactive);
+      }
     });
+  }
+
+  function moveActiveMarker(marker) {
+    markerActive.setPosition(marker.getPosition());
+    markerActive.setTitle(marker.getTitle());
+    markerActive.setVisible(true);
   }
 
   google.maps.event.addDomListener(window, 'load', initialize);
@@ -90,7 +118,13 @@ $(window).load(function() {
 <% end %>
 
 <% if ! @tours.nil? %>
-  <div class="wrapper"><div class="flexslider"><ul class="slides">
+  <div class="wrapper">
+
+    <div class="icon_search">
+      <div class="icon_refresh"><a href="javascript:location.reload(true);">&nbsp;別のレコメンドを表示</a></div>
+    </div>  
+
+    <div class="flexslider"><ul class="slides">
 
     <% @tours.each do |item| %>
       <% if ! item['img'].empty? %>
@@ -123,9 +157,11 @@ $(window).load(function() {
       <% end %>
     <% end %>
 
-  <ul></div> </div>
+  <ul></div>
+
+  </div>
 <% end %>
 
-<div style="height: 360px; width: 966px; margin: -54px auto 100px auto;">
+<div style="height: 300px; width: 966px; margin: 404px auto 35px auto;">
   <div id="map_canvas" style="width:100%; height:100%"></div>
 </div>

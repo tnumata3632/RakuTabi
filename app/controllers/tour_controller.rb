@@ -33,17 +33,14 @@ class TourController < ApplicationController
 
   def detail
     tour = AbroadTour.new
-    @tourDetail= tour.get_tours(id: params[:tourid])
+    @tourDetail= tour.get_tour(id: params[:tourid])
   end
 
-  def weather
+  def get_weather
   end
 
   private
     def set_request
       Thread.current[:request] = request
     end
-
-  def priceterm
-  end
 end
