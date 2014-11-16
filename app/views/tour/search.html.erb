@@ -5,8 +5,8 @@ $(window).load(function() {
     animationLoop: true,
     controlNav: false,
     pausePlay: true,
-    pauseText: "&nbsp;スライドショーを停止",
-    playText: "&nbsp;スライドショーを再生",
+    pauseText: "<i class=\"fa fa-pause fa-fw\"></i>スライドショーを停止",
+    playText: "<i class=\"fa fa-play fa-fw\"></i>スライドショーを再生",
     start : function(slider){
       setActive(slider.currentSlide);
     },
@@ -121,7 +121,8 @@ $(window).load(function() {
   <div class="wrapper">
 
     <div class="icon_search">
-      <div class="icon_refresh"><a href="javascript:location.reload(true);">&nbsp;別のレコメンドを表示</a></div>
+      <div class="icon_back"><a href="/selection"><i class="fa fa-mail-reply fa-fw"></i>イメージ選択画面に戻る</a></div>
+      <div class="icon_refresh"><a href="javascript:location.reload(true);"><i class="fa fa-refresh fa-fw"></i>別のレコメンドを表示</a></div>
     </div>  
 
     <div class="flexslider"><ul class="slides">
@@ -143,13 +144,16 @@ $(window).load(function() {
         <li>
           <div class="tour">
             <div class="pic">
-            <%= link_to image_tag(@img_url, :alt => @caption), "/detail?tourid=" + item['id'], {data: {no_turbolink: true}} %>
+            <img src="<%= @img_url %>" alt="<%= @caption %>">
             </div>
             <div class="text">
               <h2><%= @city %></h2>
-              <%= @title %><br />
+              <div class="title"><i class="fa fa-suitcase fa-fw"></i>今の天気</div>
+              <div class="weather">晴れ / 24&deg;C</div>
               <br />
-              <%= link_to '> 詳細をみる', @tour_url, {:target => "_blank"} %>
+              <div class="title"><i class="fa fa-suitcase fa-fw"></i>ここに行けるツアー情報</div>
+              <div class="external_link"><a href="<%= @tour_url %>" target="_blank"><%= @title %></a></div>
+              <div class="internal_link"><a href="<%= "/detail?tourid=" + item['id'] %>" target="_blank">詳細をみる</a></div>
             </div>
           </div>
         </li>
