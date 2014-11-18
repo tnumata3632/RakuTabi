@@ -24,5 +24,8 @@ class Destination
   end
 
   def get_tours
+
+
+
   end
 end
