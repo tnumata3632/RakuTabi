@@ -2,9 +2,6 @@
   <div class="photo">
   </div>
 
-  <div class="weather">
-  </div>
-
   <div class="tour">
     <% tour = @tourDetail %>
     <!-- HTMLで出力 -->
@@ -23,5 +20,8 @@
         <%= link_to '詳細はこちら', tour['urls']['pc'], {:target => "_blank"} %>
       <% end %>
     <% end %>
+  </div>
+  <div class="weather">
+    <%= @temperature %>度
   </div>
 </div>

@@ -45,3 +45,4 @@ gem 'httpclient'
 
 gem 'concurrent-ruby'
 
+gem 'awesome_print', group: :development
