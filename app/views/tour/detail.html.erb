@@ -1,6 +1,4 @@
 <div class="wrapper">
-  <div class="photo">
-  </div>
   <div class="tour">
     <% tour = @tourDetail %>
     <!-- HTMLで出力 -->
@@ -22,5 +20,12 @@
   </div>
   <div class="weather">
     <%= @temperature %>度<br>
+  </div>
+  <div class="photo" style="margin-top: 30px;">
+    <span>
+      <% @photos.each do |photo| %>
+        <%= image_tag(photo['images']['thumbnail']['url']) %>
+      <% end %>
+    </span>
   </div>
 </div>
