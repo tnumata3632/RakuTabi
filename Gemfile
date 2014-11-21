@@ -41,7 +41,7 @@ gem 'spring',        group: :development
 gem 'rails_12factor', group: :production
 ruby '2.1.2'
 
-gem 'httpclient'
+gem 'httpclient', '~> 2.5.3.3'
 
 gem 'concurrent-ruby'
 
