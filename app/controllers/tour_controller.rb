@@ -41,6 +41,7 @@ class TourController < ApplicationController
     ap destination
     weather = destination.get_weather
     @temperature = kelvin_to_celsius(weather["main"]["temp"])
+    @photos = destination.get_instagram_photos()
   end
 
   def get_weather
