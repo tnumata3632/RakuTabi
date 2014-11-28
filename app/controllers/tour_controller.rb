@@ -1,5 +1,4 @@
 class TourController < ApplicationController
-  include TourHelper
   before_filter :set_request
 
   def select
@@ -40,15 +39,20 @@ class TourController < ApplicationController
     destination = Destination.new(lat: lat, lng: lng)
     ap destination
     weather = destination.get_weather
-    @temperature = kelvin_to_celsius(weather["main"]["temp"])
+    @temp_max = kelvin_to_celsius(weather["main"]["temp_max"])
+    @temp_min = kelvin_to_celsius(weather["main"]["temp_min"])
+    @weather_icon = weather["weather"][0]["icon"]
     @photos = destination.get_instagram_photos()
-  end
-
-  def get_weather
   end
 
   private
     def set_request
       Thread.current[:request] = request
     end
+
+    def kelvin_to_celsius(degree)
+      absolute_zero = - 273.15
+      (degree.to_f + absolute_zero).round
+    end
+
 end
