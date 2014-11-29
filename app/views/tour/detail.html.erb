@@ -19,7 +19,11 @@
     <% end %>
   </div>
   <div class="weather">
-    <%= @temperature %>度<br>
+    <今日の天気><br>
+    <%= image_tag( 'http://openweathermap.org/img/w/' + @weather_icon + '.png') %><br>
+    最高気温:<%= @temp_max %>度<br>
+    最低気温:<%= @temp_min %>度<br>
+
   </div>
   <div class="photo" style="margin-top: 30px;">
     <span>
