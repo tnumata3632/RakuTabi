@@ -2,9 +2,6 @@
 $(window).load(function() {
   $('.flexslider').flexslider({
     slideshow: false,
-    pausePlay: true,
-    pauseText: "<i class=\"fa fa-pause fa-fw\"></i>スライドショーを停止",
-    playText: "<i class=\"fa fa-play fa-fw\"></i>スライドショーを再生",
     start : function(slider){
       setActive(slider.currentSlide);
     },
@@ -76,7 +73,7 @@ $(window).load(function() {
         position: myLatLng, map: map, icon: iconInactive, title: '<%= @name %>', animation: google.maps.Animation.DROP, zIndex: zindex
       });
       markerList.push(marker);
-      google.maps.event.addListener(marker, 'click', function(){
+      /*google.maps.event.addListener(marker, 'click', function(){
         $('.flexslider').flexslider(marker.getZIndex());
         moveActiveMarker(marker);
         markerList.forEach(function(marker){
@@ -85,7 +82,7 @@ $(window).load(function() {
         marker.setIcon(iconActive);
         map.panTo(marker.getPosition());
         //map.setZoom(4);
-      });
+      });*/
     }, <%= @counter %> * 180);
       <% end %>
     <% end %>
@@ -139,39 +136,34 @@ $(window).load(function() {
             <div class="pic">
               <img src="<%= @img_url %>" alt="<%= @caption %>">
             </div>
+
             <div class="text">
               <h2><%= @city %></h2>
-
-              <br /><br /><br />
               
-              <div class="weather">2014.12.12 18:18 (日本との時差 -14)</div>
-              <div class="weather">晴れ / 24&deg;C</div>
+              <div class="info">
+                2014.12.12 18:18 (日本との時差 -14)<br />
+                晴れ / 24&deg;C
+              </div>
               
-              <br /><br /><br />
-              
-              <span class="fa-stack fa-lg">
-                <a href="<%= "/detail?tourid=" + item['id'] %>" target="_blank">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-camera fa-stack-1x" style="color: #333;"></i>
-                </a>
-              </span>
-              <span class="fa-stack fa-lg">
-                <a href="<%= @tour_url %>" target="_blank">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-suitcase fa-stack-1x" style="color: #333;"></i>
-                </a>
-              </span>
-              <span class="fa-stack fa-lg">
-                <a href="/selection">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-mail-reply fa-stack-1x" style="color: #333;"></i>
-                </a>
-              </span>
-
-              <br /><br /><br />
-
-              <div style="height: 200px; width: 300px;">
-                <div id="map_canvas" style="width: 100%; height: 100%"></div>
+              <div class="icon">
+                <span class="fa-stack fa-lg">
+                  <a href="<%= "/detail?tourid=" + item['id'] %>" target="_blank">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-camera fa-stack-1x" style="color: #333;"></i>
+                  </a>
+                </span>
+                <span class="fa-stack fa-lg">
+                  <a href="<%= @tour_url %>" target="_blank">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-suitcase fa-stack-1x" style="color: #333;"></i>
+                  </a>
+                </span>
+                <span class="fa-stack fa-lg">
+                  <a href="/selection">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-mail-reply fa-stack-1x" style="color: #333;"></i>
+                  </a>
+                </span>
               </div>
             </div>
           </div>
@@ -181,6 +173,10 @@ $(window).load(function() {
     <% end %>
 
   <ul></div>
+
+  <div class="map">
+    <div id="map_canvas"></div>
+  </div>
 
   </div>
 <% end %>

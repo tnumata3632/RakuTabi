@@ -95,36 +95,51 @@
 
 /* search */
 
-#search .tour, .tour .pic {
-  min-height: 100%;
-  min-width: 100%;
-  overflow: hidden;
+#search .flexslider {
+  margin: 0 !important;
 }
 
+#search .tour .pic {
+  position: relative;
+  z-index: -999;
+  max-height: 800px;
+  max-width: 100%;
+  overflow: hidden;
+  -webkit-transition: max-width .5s ease-out;
+  -moz-transition: max-width .5s ease-out;
+  -ms-transition: max-width .5s ease-out;
+  -o-transition: max-width .5s ease-out;
+  transition: max-width .5s ease-out;
+}
 #search .tour .pic img {
+  width: 100%;
+  -webkit-transition: margin-top .5s ease-out;
+  -moz-transition: margin-top .5s ease-out;
+  -ms-transition: margin-top .5s ease-out;
+  -o-transition: margin-top .5s ease-out;
+  transition: margin-top .5s ease-out;
+}
+#search .tour .text {
   position: absolute;
   top: 0;
-  left: 0;
-  min-height: 100%;
-  min-width: 100%;
-  z-index: -9999;
-}
-
-#search .tour .text {
-  margin-left: 80px;
-  padding: 30px;
-  width: 300px;
-  height: 1000px;
-  background-color: #222;
+  left: 80px;
+  width: 360px;
+  height: 800px;
+  background-color: rgba(0,0,0,0.5);
   font-size: 12px;
-  text-align: left;
   color: #fff;
 }
 #search .tour .text h2 {
-  margin: 0 0 20px 0;
+  margin: 50px 30px 0 30px;
   padding: 0;
   font-size: 20px;
   font-weight: normal;
+}
+#search .tour .info {
+  margin: 50px 30px 0 30px;
+}
+#search .tour .icon {
+  margin: 50px 30px 0 30px;
 }
 #search .tour .text a {
   color: #fff;
@@ -133,4 +148,13 @@
 #search .tour .text a:hover {
   color: #fff;
   text-decoration: none;
+}
+
+#search .map {
+  position: absolute;
+  z-index: 999;
+  top: 530px;
+  left: 110px;
+  height: 200px;
+  width: 300px;
 }
