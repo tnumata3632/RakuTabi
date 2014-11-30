@@ -2,81 +2,85 @@
 $(function(){
   $("#jump").click(function() {
         var speed = 500;
-        var position = document.getElementById("bottom").offsetTop; 
+        var position = document.getElementById("about").offsetTop; 
         $('html, body').animate({ scrollTop: position }, speed, 'swing');
         return false;
   });
 });
 </script>
 
-<div id="top">
-  <div class="top_top">
-    <div class="inner">
-      <div class="icon_index">
-        <div class="icon_about"><a id="jump" href="#bottom"><i class="fa fa-plane fa-fw"></i>RakuTabiについて</a></div>
-      </div>   
-      
-      <div class="logo"><%= image_tag('logo.png', :alt => 'RakuTabi') %></div>
+<div id="index">
 
-      <div id="button_top">
-        <a href="/selection" alt="今すぐはじめる">今すぐはじめる</a>
+  <div class="main">
+    <div class="row">
+      <div class="cell">
+        <div class="icon">
+          <div class="icon_plane"><a id="jump" href="#about"><i class="fa fa-plane fa-fw"></i>RakuTabiについて</a></div>
+        </div>   
+        
+        <div class="logo"><%= image_tag('logo.png', :alt => 'RakuTabi') %></div>
+
+        <div class="button_top">
+          <a href="/selection" alt="今すぐはじめる">今すぐはじめる</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div id="bottom">
-  <div class="feature">
-    <div class="bottom_text">
-      <p class="title">RakuTabiとは</p>
-      <p class="text">
-        RakuTabiは、他のサービスとはちょっと違う、今までにない旅行目的地レコメンドサービスです。<br />
-        「休みがとれた。どこ行こう」<br />
-        行き先が決まっていない旅のアイデアを得るのに最適です。
-      </p>
+  <div id="about" class="about">
+    <div class="feature">
+      <div class="bottom_text">
+        <p class="title">RakuTabiとは</p>
+        <p class="text">
+          RakuTabiは、他のサービスとはちょっと違う、今までにない旅行目的地レコメンドサービスです。<br />
+          「休みがとれた。どこ行こう」<br />
+          行き先が決まっていない旅のアイデアを得るのに最適です。
+        </p>
+      </div>
+      <div class="bottom_image">
+        <p class="image"><%= image_tag("feature01.png") %></p>
+      </div>
     </div>
-    <div class="bottom_image">
-      <p class="image"><%= image_tag("feature01.png") %></p>
+
+   <div class="feature">
+      <div class="bottom_image">
+        <p class="image"><%= image_tag("feature02.png") %></p>
+      </div>
+      <div class="bottom_text">
+        <p class="title">シンプルな操作</p>
+        <p class="text">
+          目的地をレコメンドしてもらうためにやらなきゃいけないことは、シンプルな質問に答えるだけ。<br />
+          細かいことを考えたり、たくさんの条件を入力する必要はありません。
+        </p>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="bottom_text">
+        <p class="title">思いつかないような場所へ</p>
+        <p class="text">
+          たったそれだけで、自分では思いつかないような目的地をレコメンドしてくれます。<br />
+          世界はひろい。<br />
+          RakuTabiで新しい発見をしてください。
+        </p>
+      </div>
+      <div class="bottom_image">
+        <p class="image"><%= image_tag("feature03.png") %></p>
+      </div>
     </div>
   </div>
 
- <div class="feature">
-    <div class="bottom_image">
-      <p class="image"><%= image_tag("feature02.png") %></p>
-    </div>
-    <div class="bottom_text">
-      <p class="title">シンプルな操作</p>
-      <p class="text">
-        目的地をレコメンドしてもらうためにやらなきゃいけないことは、シンプルな質問に答えるだけ。<br />
-        細かいことを考えたり、たくさんの条件を入力する必要はありません。
-      </p>
-    </div>
+  <div class="button_bottom">
+    <a href="/selection" alt="今すぐはじめる">今すぐはじめる</a>
   </div>
 
-  <div class="feature">
-    <div class="bottom_text">
-      <p class="title">思いつかないような場所へ</p>
-      <p class="text">
-        たったそれだけで、自分では思いつかないような目的地をレコメンドしてくれます。<br />
-        世界はひろい。<br />
-        RakuTabiで新しい発見をしてください。
-      </p>
-    </div>
-    <div class="bottom_image">
-      <p class="image"><%= image_tag("feature03.png") %></p>
-    </div>
+  <div class="footer">
+    Copyright 2014 &copy; RakuTabi. All rights reserved.
   </div>
-</div>
 
-<div id="button_bottom">
-  <a href="/selection" alt="今すぐはじめる">今すぐはじめる</a>
-</div>
+  <div id="totop" class="totop"><a href="#"><img src="/assets/totop.png"></a></div>
 
-<div id="footer">
-  Copyright 2014 &copy; RakuTabi. All rights reserved.
 </div>
-
-<div id="totop"><a href="#"><img src="/assets/totop.png"></a></div>
 
 <script>
 $(function() {
