@@ -1,8 +1,9 @@
-.icon_index { display: inline-block; }
-.icon_index a { width: auto; height: 16px; line-height: 16px; vertical-align: top; opacity: 0.8; z-index: 10; cursor: pointer; color: #fff; text-decoration: none !important; position: absolute; top: 55px; right: 70px; z-index: 10; }
-.icon_index a:hover  { opacity: 1; }
+#index .icon { display: inline-block; }
+#index .icon_plane a { width: auto; height: 16px; line-height: 16px; vertical-align: top; opacity: 0.8; z-index: 10; cursor: pointer; text-decoration: none !important; position: absolute; top: 55px; right: 70px; z-index: 10; }
+#index .icon_plane a:hover  { opacity: 1; }
+#index .icon_plane a  { color: #fff; }
 
-#top {
+#index .main {
   min-width: 800px;
   height: 800px;
   width: 100%;
@@ -10,89 +11,79 @@
   background-size: cover;
   display: table;
 }
-#top .top_top, #top .top_bottom {
+#index .row {
   display: table-row;
   text-align: center;
+  height: 100%;
 }
-#top .inner {
+#index .cell {
   display: table-cell;
   vertical-align: middle;
 }
-#top .top_top {
-  height: 100%;
-}
-#top .top_bottom {
-  height: 0;
-}
-#top .logo {
-  margin-bottom: 130px;
-}
-#top a {
+#index .logo {
+  margin-bottom: 160px;
+  font-size: 16px;
   color: #fff;
-  text-decoration: none;
-}
-#top a:hover {
-  color: #fff;
-  text-decoration: underline;
+  letter-spacing: 0.2em;
 }
 
-#bottom {
+#index .about {
   margin: 0 auto;
   display: table;
 }
-#bottom .feature {
+#index .about .feature {
   display: table-row;
   text-align: left;
 }
-#bottom .bottom_text, #bottom .bottom_image {
+#index .about .bottom_text, .about .bottom_image {
   padding-top: 150px;
   display: table-cell;
   vertical-align: top;
 }
-#bottom .bottom_text {
+#index .about .bottom_text {
   width: 400px;
 }
-#bottom .title {
+#index .about .title {
   margin: 0 0 20px 0;
   font-size: 32px;
 }
-#bottom .text {
+#index .about .text {
   margin: 0 0 100px 0;
   font-size: 15px;
   line-height: 200%;
 }
-#bottom .image {
+#index .about .image {
   margin: 0 auto;
   width: 300px;
   height: 300px;
 }
-#bottom .image img {
+#index .about .image img {
   width: 300px;
   height: 300px;
 }
 
-#button_top, #button_bottom { width: 800px; }
-#button_top { margin: 0 auto 0 auto; }
-#button_bottom { margin: 150px auto 0 auto; }
-#button_top a, #button_bottom a {
+#index .button_top, .button_bottom { width: 800px; }
+#index .button_top { margin: 0 auto 0 auto; }
+#index .button_bottom { margin: 150px auto 0 auto; }
+#index .button_top a, .button_bottom a {
   margin: 0 auto;
   display: block;
   width: 400px;
   height: 60px;
   text-indent: -9999px;
 }
-#button_top a { background-image: url(button_top.png); }
-#button_bottom a { background-image: url(button_bottom.png); }
-#button_top a:hover, #button_bottom a:hover { background-position: left bottom; }
+#index .button_top a { background-image: url(button_top.png); }
+#index .button_bottom a { background-image: url(button_bottom.png); }
+#index .button_top a:hover, .button_bottom a:hover { background-position: left bottom; }
 
-#footer {
+#index .footer {
   padding: 150px 0 20px 0;
   text-align: center;
   font-size: 13px;
   color: #999;
 }
 
-#totop {
+#index .totop {
   position: fixed;
   right: 70px;
   bottom: 55px;

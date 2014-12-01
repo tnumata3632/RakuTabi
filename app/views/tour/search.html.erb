@@ -1,12 +1,7 @@
 <script>
 $(window).load(function() {
   $('.flexslider').flexslider({
-    animation: "slide",
-    animationLoop: true,
-    controlNav: false,
-    pausePlay: true,
-    pauseText: "<i class=\"fa fa-pause fa-fw\"></i>スライドショーを停止",
-    playText: "<i class=\"fa fa-play fa-fw\"></i>スライドショーを再生",
+    slideshow: false,
     start : function(slider){
       setActive(slider.currentSlide);
     },
@@ -16,7 +11,7 @@ $(window).load(function() {
   });
   $('.flex-pause, .flex-prev, .flex-next').click(function () {
     map = markerActive.getMap();
-    map.setZoom(2);
+    map.setZoom(1);
   });
 });
 </script>
@@ -39,7 +34,7 @@ $(window).load(function() {
     var styles = [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"saturation":-100},{"lightness":51},{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}];
     var mapOptions = {
       center: new google.maps.LatLng(15.000, 155.000),
-      zoom: 2,
+      zoom: 1,
       disableDefaultUI: true,
       zoomControl: true,
       zoomControlOptions: {
@@ -78,7 +73,7 @@ $(window).load(function() {
         position: myLatLng, map: map, icon: iconInactive, title: '<%= @name %>', animation: google.maps.Animation.DROP, zIndex: zindex
       });
       markerList.push(marker);
-      google.maps.event.addListener(marker, 'click', function(){
+      /*google.maps.event.addListener(marker, 'click', function(){
         $('.flexslider').flexslider(marker.getZIndex());
         moveActiveMarker(marker);
         markerList.forEach(function(marker){
@@ -86,8 +81,8 @@ $(window).load(function() {
         });
         marker.setIcon(iconActive);
         map.panTo(marker.getPosition());
-        map.setZoom(4);
-      });
+        //map.setZoom(4);
+      });*/
     }, <%= @counter %> * 180);
       <% end %>
     <% end %>
@@ -114,16 +109,20 @@ $(window).load(function() {
   }
 
   google.maps.event.addDomListener(window, 'load', initialize);
+
+  $(document).ready( function(){
+    $('.tooltip').darkTooltip({
+        opacity: 1,
+        animation: 'fadeIn',
+        gravity: 'south',
+        theme:'light'
+    });
+  });
 </script>
 <% end %>
 
 <% if ! @tours.nil? %>
-  <div class="wrapper">
-
-    <div class="icon_search">
-      <div class="icon_back"><a href="/selection"><i class="fa fa-mail-reply fa-fw"></i>イメージ選択画面に戻る</a></div>
-      <div class="icon_refresh"><a href="javascript:location.reload(true);"><i class="fa fa-refresh fa-fw"></i>別のレコメンドを表示</a></div>
-    </div>  
+  <div id="search">
 
     <div class="flexslider"><ul class="slides">
 
@@ -144,16 +143,37 @@ $(window).load(function() {
         <li>
           <div class="tour">
             <div class="pic">
-            <img src="<%= @img_url %>" alt="<%= @caption %>">
+              <img src="<%= @img_url %>" alt="<%= @caption %>">
             </div>
+
             <div class="text">
               <h2><%= @city %></h2>
-              <div class="title"><i class="fa fa-suitcase fa-fw"></i>今の天気</div>
-              <div class="weather">晴れ / 24&deg;C</div>
-              <br />
-              <div class="title"><i class="fa fa-suitcase fa-fw"></i>ここに行けるツアー情報</div>
-              <div class="external_link"><a href="<%= @tour_url %>" target="_blank"><%= @title %></a></div>
-              <div class="internal_link"><a href="<%= "/detail?tourid=" + item['id'] %>" target="_blank">詳細をみる</a></div>
+              
+              <div class="info">
+                2014.12.12 18:18 (日本との時差 -14)<br />
+                晴れ / 24&deg;C
+              </div>
+              
+              <div class="icon">
+                <span class="fa-stack fa-lg">
+                  <a class="tooltip" data-tooltip="もっと写真をみる" href="<%= "/detail?tourid=" + item['id'] %>" target="_blank">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-camera fa-stack-1x" style="color: #333;"></i>
+                  </a>
+                </span>
+                <span class="fa-stack fa-lg">
+                  <a class="tooltip" data-tooltip="ここに行けるツアーをみる" href="<%= @tour_url %>" target="_blank">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-suitcase fa-stack-1x" style="color: #333;"></i>
+                  </a>
+                </span>
+                <span class="fa-stack fa-lg">
+                  <a class="tooltip" data-tooltip="最初からやり直す" href="/selection">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-mail-reply fa-stack-1x" style="color: #333;"></i>
+                  </a>
+                </span>
+              </div>
             </div>
           </div>
         </li>
@@ -163,9 +183,9 @@ $(window).load(function() {
 
   <ul></div>
 
+  <div class="map">
+    <div id="map_canvas"></div>
+  </div>
+
   </div>
 <% end %>
-
-<div style="height: 300px; width: 966px; margin: 404px auto 35px auto;">
-  <div id="map_canvas" style="width:100%; height:100%"></div>
-</div>
