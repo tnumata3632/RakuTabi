@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+require "csv"
 
 Image.create([image_id: 'animal00', keywords: '鳥', path: 'animal00.png'])
 Image.create([image_id: 'animal01', keywords: 'サファリ', path: 'animal01.png'])
@@ -36,4 +37,16 @@ Image.create([image_id: 'spot01', keywords: 'カジノ', path: 'spot01.png'])
 Image.create([image_id: 'spot02', keywords: '温泉', path: 'spot02.png'])
 Image.create([image_id: 'trans00', keywords: '鉄道', path: 'trans00.png'])
 Image.create([image_id: 'trans01', keywords: '船', path: 'trans01.png'])
-
+p Dir.glob('db/city/*')
+Dir.glob('db/city/*') {|f|
+  puts f
+  reader = CSV.open(f, 'r')
+  reader.shift
+  s = reader.shift[0]
+  p s
+  country = s[7...s.index('(')]
+  reader.each do |row|
+    City.create(:country => country, :city_jp => row[0], :city_en => row[1], :lat => row[2], 
+                :lng => row[3], :city_type => row[4], :layer => row[5], :code_no => row[6])
+  end
+}
