@@ -37,7 +37,7 @@ Image.create([image_id: 'spot01', keywords: 'カジノ', path: 'spot01.png'])
 Image.create([image_id: 'spot02', keywords: '温泉', path: 'spot02.png'])
 Image.create([image_id: 'trans00', keywords: '鉄道', path: 'trans00.png'])
 Image.create([image_id: 'trans01', keywords: '船', path: 'trans01.png'])
-p Dir.glob('db/city/*')
+#p Dir.glob('db/city/*')
 Dir.glob('db/city/*') {|f|
   puts f
   reader = CSV.open(f, 'r')

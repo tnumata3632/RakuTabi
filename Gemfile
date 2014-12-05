@@ -46,3 +46,6 @@ gem 'httpclient', '~> 2.5.3.3'
 gem 'concurrent-ruby'
 
 gem 'awesome_print'
+
+gem 'instagramjs-rails'
+
