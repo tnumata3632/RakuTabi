@@ -130,9 +130,9 @@ $(window).load(function() {
       <% if ! item['img'].empty? %>
 
         <!-- データを変数に格納 -->
-        <% item['img'].sample(1).each do |img| %>
-          <% @img_url = img['l'] %>
-          <% @caption = img['caption'] %>
+        <% item['panoramio_photos'].sample(1).each do |photo| %>
+          <% @img_url = photo['photo_file_url'] %>
+          <% @caption = photo['photo_title'] %>
         <% end %>
 
         <% @tour_url = item['urls']['pc'] %>

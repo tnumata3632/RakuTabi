@@ -48,7 +48,7 @@ class Destination
     return jsonData['data']
   end
 
-  def get_panoramio
+  def get_panoramio_photos
     Rails.logger.debug("Get Panoramio...")
     @delta = 0.1
     @latf = @lat.to_f
@@ -72,6 +72,6 @@ class Destination
       rescue HTTPClient::TimeoutError => e
     end
     Rails.logger.debug("Get Panoramio finished!")
-    return jsonData["photos"][0]["photo_file_url"]
+    return jsonData["photos"]
   end
 end
