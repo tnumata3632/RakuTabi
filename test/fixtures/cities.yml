@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  country: MyString
+  city_jp: MyString
+  city_en: MyString
+  lat: 9.99
+  lng: 9.99
+  city_type: MyString
+  layer: MyString
+  code_no: MyString
+
+two:
+  country: MyString
+  city_jp: MyString
+  city_en: MyString
+  lat: 9.99
+  lng: 9.99
+  city_type: MyString
+  layer: MyString
+  code_no: MyString
