@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141016002324) do
+ActiveRecord::Schema.define(version: 20141204175704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cities", force: true do |t|
+    t.string   "country"
+    t.string   "city_jp"
+    t.string   "city_en"
+    t.decimal  "lat"
+    t.decimal  "lng"
+    t.string   "city_type"
+    t.string   "layer"
+    t.string   "code_no"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "images", force: true do |t|
     t.string   "image_id"

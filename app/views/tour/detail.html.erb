@@ -1,35 +1,52 @@
 <div class="wrapper">
-  <div class="tour">
-    <% tour = @tourDetail %>
-    <!-- HTMLで出力 -->
-    <% if ! tour.nil? %>
-      <% if ! tour['img'][0].nil? %>
-         <h2><%= tour['title'] %></h2>
-        <%= link_to image_tag(tour['img'][0]['l']),
-         tour['urls']['pc'],
-         {:target => "_blank",
-         :alt =>tour['img'][0]['caption']} %><br>
-        *国名:<%= tour['dest']['country']['name'] %><br>
-        *目的地:<%= tour['dest']['name'] %><br>
-        *期間:<%= tour['term'] %>日間<br>
-        *旅行代金:<%= tour['price']['all_month']['min'] %>～
-             <%= tour['price']['all_month']['max'] %>円<br>
-        <%= link_to '詳細はこちら', tour['urls']['pc'], {:target => "_blank"} %>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="weather">
-    <今日の天気><br>
-    <%= image_tag( 'http://openweathermap.org/img/w/' + @weather_icon + '.png') %><br>
-    最高気温:<%= @temp_max %>度<br>
-    最低気温:<%= @temp_min %>度<br>
+  <div class="instagram food"></div>
+  <div class="instagram view"></div>
+  <div class="instagram sight"></div>
+  <div class="instagram arch"></div>
 
-  </div>
-  <div class="photo" style="margin-top: 30px;">
-    <span>
-      <% @photos.each do |photo| %>
-        <%= image_tag(photo['images']['thumbnail']['url']) %>
-      <% end %>
-    </span>
-  </div>
+  <!-- <script src="jquery.js"></script>
+  <script src="dist/instagram.min.js"></script> -->
+  <script>
+  function createPhotoElement(photo) {
+      var innerHtml = $('<img>')
+        .addClass('instagram-image')
+        .attr('src', photo.images.low_resolution.url);
+
+      innerHtml = $('<a>')
+        .attr('target', '_blank')
+        .attr('href', photo.link)
+        .append(innerHtml);
+      return innerHtml;
+    }
+
+    function didLoadInstagram(event, response) {
+      var that = this;
+
+      $.each(response.data, function(i, photo) {
+        $(that).append(createPhotoElement(photo));
+      });
+    }
+  $(document).ready(function() {
+    $('.instagram.food').on('didLoadInstagram', didLoadInstagram);
+    $('.instagram.food').instagram({
+      hash: '<%= @hashtag %>' + 'food',
+      clientId: '954787f7f2b6464b98dbb73fb2492523'
+    });
+    $('.instagram.view').on('didLoadInstagram', didLoadInstagram);
+    $('.instagram.view').instagram({
+      hash: '<%= @hashtag %>' + 'view',
+      clientId: '954787f7f2b6464b98dbb73fb2492523'
+    });
+    $('.instagram.arch').on('didLoadInstagram', didLoadInstagram);
+    $('.instagram.arch').instagram({
+      hash: '<%= @hashtag %>' + 'architecture',
+      clientId: '954787f7f2b6464b98dbb73fb2492523'
+    });
+    $('.instagram.sight').on('didLoadInstagram', didLoadInstagram);
+    $('.instagram.sight').instagram({
+      hash: '<%= @hashtag %>' + 'sightseeing',
+      clientId: '954787f7f2b6464b98dbb73fb2492523'
+    });
+  });
+  </script>
 </div>
