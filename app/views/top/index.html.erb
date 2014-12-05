@@ -2,7 +2,7 @@
 $(function(){
   $("#jump").click(function() {
         var speed = 500;
-        var position = document.getElementById("about").offsetTop; 
+        var position = document.getElementById("about").offsetTop;
         $('html, body').animate({ scrollTop: position }, speed, 'swing');
         return false;
   });
@@ -16,15 +16,15 @@ $(function(){
       <div class="cell">
         <div class="icon">
           <div class="icon_plane"><a id="jump" href="#about"><i class="fa fa-plane fa-fw"></i>タビノタネについて</a></div>
-        </div>   
-        
+        </div>
+
         <div class="logo">
           <%= image_tag('logo_l.png', :alt => 'タビノタネ') %><br />
           思いつかないような場所へ行ける、旅行目的地レコメンドサービス
         </div>
 
         <div class="button_top">
-          <a href="/selection" alt="今すぐはじめる">今すぐはじめる</a>
+          <a href="/question07" alt="今すぐはじめる">今すぐはじめる</a>
         </div>
       </div>
     </div>
@@ -89,7 +89,7 @@ $(function(){
 $(function() {
   // 最初はhide
   $('#totop').hide();
-  
+
   // スクロールに応じてfadein/fadeout
   $(window).scroll(function(){
     if($(this).scrollTop() > 300) {
@@ -97,9 +97,9 @@ $(function() {
     } else {
       $('#totop').fadeOut();
     }
-  
+
   });
-  
+
   // クリックされたら上へ
   $('#totop a').click(function() {
       $('body, html').animate({
