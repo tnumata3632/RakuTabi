@@ -6,10 +6,11 @@ class Destination
   INSTAGRAM_CLIENT_ID = "954787f7f2b6464b98dbb73fb2492523"
   PANORAMIO_URL = "http://www.panoramio.com/map/get_panoramas.php"
 
-  attr_accessor :city, :country, :countryCode, :lat, :lng
+  attr_accessor :city, :cityCode, :country, :countryCode, :lat, :lng
 
-  def initialize(city: nil, country: nil, countryCode: nil, lat: nil, lng: nil)
+  def initialize(city: nil, cityCode: nil, country: nil, countryCode: nil, lat: nil, lng: nil)
     @city = city
+    @cityCode = cityCode
     @country = country
     @countryCode = countryCode
     @lat = lat
@@ -28,10 +29,17 @@ class Destination
     return jsonData
   end
 
-  def get_tours
-
-
-
+  def get_hashtag_for_instagram
+    city = City.find_by(city_jp: @city)
+    ap city
+    if city.nil?
+      city = City.newInstanceByAbroadApi(@cityCode)
+    end
+    cityname = city.city_en.gsub(" ", "").split(".")[0]
+    p cityname
+    tag = cityname
+    #url = "https://api.instagram.com/v1/tags/#{foodtag}/media/recent"
+    #data = call_api(url, {"client_id" => INSTAGRAM_CLIENT_ID})
   end
 
   def get_instagram_photos

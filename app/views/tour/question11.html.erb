@@ -1,0 +1,80 @@
+<script>
+var count = 0;
+function rotate() {
+  22222ｗｓ2var elem = document.getElementById('loading');
+  elem.style.MozTransform = 'scale(0.5) rotate('+count+'deg)';
+  elem.style.WebkitTransform = 'scale(0.5) rotate('+count+'deg)';
+  if (count==360) { count = 0 }
+  count+=45;
+  window.setTimeout(rotate, 100);
+}
+window.setTimeout(rotate, 100);
+
+function show() {
+  var elem = document.getElementById('target');
+  elem.className = "visible"
+}
+</script>
+
+<div id="select">
+  <div class="nav">
+    <div class="row">
+      <div class="logo">
+        <a href="/" alt="Home">
+          <%= image_tag('logo_s.png', :alt => 'タビノタネ') %>
+        </a>
+      </div>
+
+      <div class="breadcrumb">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
+          <i class="fa fa-question fa-stack-1x" style="color: #333;"></i>
+        </span>
+
+        <span style="color: #fff; padding: 0 10px;">></span>
+
+        <span class="fa-stack fa-lg" style="color: #fff;">
+          <i class="fa fa-circle fa-stack-2x" style="color: #f1634f;"></i>
+          <i class="fa fa-question fa-stack-1x" style="color: #fff;"></i>
+        </span>
+
+        <span style="color: #fff; padding: 0 10px;">></span>
+
+        <span class="fa-stack fa-lg" style="color: #fff;">
+          <i class="fa fa-circle fa-stack-2x" style="color: #fff;"></i>
+          <i class="fa fa-plane fa-stack-1x" style="color: #333;"></i>
+        </span>
+      </div>
+
+      <div style="clear: both;"></div>
+    </div>
+  </div>
+
+  <div class="title">
+    <div class="question">気になるカードはどっち？</div>
+
+    <div class="icon">
+      <div class="icon_refresh"><a href="/question07"><i class="fa fa-refresh fa-fw"></i>他の質問を選ぶ</a></div>
+    </div>
+  </div>
+
+  <div class="pic">
+    <%= link_to image_tag('q11_l.png', :class=>"circle"), '/selection' %>
+
+     <div id="target" class="hidden">
+       <div id="loading">
+         <div class="bar1"></div>
+         <div class="bar2"></div>
+         <div class="bar3"></div>
+         <div class="bar4"></div>
+         <div class="bar5"></div>
+         <div class="bar6"></div>
+         <div class="bar7"></div>
+         <div class="bar8"></div>
+       </div>
+     </div>
+
+    <%= link_to image_tag('q11_r.png', :class=>"circle"), '/selection' %>
+
+   </div>
+</div>
