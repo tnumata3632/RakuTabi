@@ -54,26 +54,27 @@ function show() {
     <div class="question">動物に生まれ変わるとしたら、どっちがいい？</div>
 
     <div class="icon">
-      <div class="icon_refresh"><a href="javascript:location.reload(true);"><i class="fa fa-refresh fa-fw"></i>どちらも好きじゃない</a></div>
+      <div class="icon_refresh"><a href="/question11"><i class="fa fa-refresh fa-fw"></i>他の質問を選ぶ</a></div>
     </div>
   </div>
 
   <div class="pic">
-    <%= link_to image_tag(@image_l.path, :class => "circle"), '/tour?imgid=' + @image_l.image_id, {:onclick => "show();", data: {no_turbolink: true}} %>
+    <%= link_to image_tag('q07_l.png', :class=>"circle"), '/selection' %>
 
-    <div id="target" class="hidden">
-      <div id="loading">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-        <div class="bar4"></div>
-        <div class="bar5"></div>
-        <div class="bar6"></div>
-        <div class="bar7"></div>
-        <div class="bar8"></div>
-      </div>
-    </div>
+     <div id="target" class="hidden">
+       <div id="loading">
+         <div class="bar1"></div>
+         <div class="bar2"></div>
+         <div class="bar3"></div>
+         <div class="bar4"></div>
+         <div class="bar5"></div>
+         <div class="bar6"></div>
+         <div class="bar7"></div>
+         <div class="bar8"></div>
+       </div>
+     </div>
 
-    <%= link_to image_tag(@image_r.path, :class => "circle"), '/tour?imgid=' + @image_r.image_id, {:onclick => "show();", data: {no_turbolink: true}} %>
-  </div>
+    <%= link_to image_tag('q07_r.png', :class=>"circle"), '/selection' %>
+
+   </div>
 </div>
