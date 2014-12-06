@@ -48,7 +48,12 @@ class AbroadTour
     # 引数で指定された件数のツアー情報を配列で返す
     # return hash.values[(start-1)...(start-1+count)]
     # Sprint4暫定ロジック。ランダムに10個返す
-    return toursHash.values.sample(count).sort{|a, b| a["dest"]["lng"].to_i <=> b["dest"]["lng"].to_i}
+    tours = toursHash.values.sample(count).sort{|a, b| a["dest"]["lng"].to_i <=> b["dest"]["lng"].to_i}
+    tours.each do |tour|
+      dest = Destination.new(lat: tour["dest"]["lat"], lng: tour["dest"]["lng"])
+      tour["panoramio_photos"] = dest.get_panoramio_photos
+    end
+    return tours
   end
 
   def get_tours_by_keyword(keyword, dept="TYO", start=1, count=10)

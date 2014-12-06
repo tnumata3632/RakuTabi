@@ -130,9 +130,9 @@ $(window).load(function() {
       <% if ! item['img'].empty? %>
 
         <!-- データを変数に格納 -->
-        <% item['img'].sample(1).each do |img| %>
-          <% @img_url = img['l'] %>
-          <% @caption = img['caption'] %>
+        <% item['panoramio_photos'].sample(1).each do |photo| %>
+          <% @img_url = photo['photo_file_url'] %>
+          <% @caption = photo['photo_title'] %>
         <% end %>
 
         <% @tour_url = item['urls']['pc'] %>
@@ -151,8 +151,9 @@ $(window).load(function() {
               
               <div class="info">
                 <% @timedif = item['dest']['lng'].to_i/15 %> 
-                <%= (Time.now + 3600 * @timedif).strftime("%Y.%m.%d %H:%M")  %> (日本との時差 -<%= @timedif - 9 %>時間)<br />
-                晴れ / 24&deg;C
+                今の時間<%= (Time.now + 3600 * @timedif).strftime("%Y.%m.%d %H:%M")  %> (日本との時差 -<%= @timedif - 9 %>時間)<br />
+                今日の天気<br />
+                観光スポット
               </div>
               
               <div class="icon">
@@ -169,7 +170,7 @@ $(window).load(function() {
                   </a>
                 </span>
                 <span class="fa-stack fa-lg">
-                  <a class="tooltip" data-tooltip="最初からやり直す" href="/selection">
+                  <a class="tooltip" data-tooltip="最初からやり直す" href="/question11">
                   <i class="fa fa-circle fa-stack-2x"></i>
                   <i class="fa fa-mail-reply fa-stack-1x" style="color: #333;"></i>
                   </a>
