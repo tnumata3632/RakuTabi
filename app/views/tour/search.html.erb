@@ -137,7 +137,7 @@ $(window).load(function() {
 
         <% @tour_url = item['urls']['pc'] %>
         <% @title = item['title'] %>
-        <% @city = item['city_summary'] %>
+        <% @city = item['dest']['name'] %>
 
         <!-- HTMLで出力 -->
         <li>
@@ -150,7 +150,8 @@ $(window).load(function() {
               <h2><%= @city %></h2>
               
               <div class="info">
-                2014.12.12 18:18 (日本との時差 -14)<br />
+                <% @timedif = item['dest']['lng'].to_i/15 %> 
+                <%= (Time.now + 3600 * @timedif).strftime("%Y.%m.%d %H:%M")  %> (日本との時差 -<%= @timedif - 9 %>時間)<br />
                 晴れ / 24&deg;C
               </div>
               
