@@ -116,27 +116,23 @@
   position: relative;
   z-index: -999;
   max-height: 800px;
-  max-width: 100%;
-  overflow: hidden;
-  /*-webkit-transition: max-width .5s ease-out;
-  -moz-transition: max-width .5s ease-out;
-  -ms-transition: max-width .5s ease-out;
-  -o-transition: max-width .5s ease-out;
-  transition: max-width .5s ease-out;*/
-  background-color: #000;
-  text-align: center;
-}
-#search .tour .pic img {
-  display: inline-block;
-  margin: 0 auto;
   min-height: 800px;
-  max-height: 800px;
-  width: auto;
-  /*-webkit-transition: margin-top .5s ease-out;
-  -moz-transition: margin-top .5s ease-out;
-  -ms-transition: margin-top .5s ease-out;
-  -o-transition: margin-top .5s ease-out;
-  transition: margin-top .5s ease-out;*/
+  max-width: 100%;
+  min-width: 100%;
+  background-color: #000;
+  background-position: center center;
+
+  /* 案①　フルスクリーン。メリット：デザイン的にはいい。デメリット：縦長写真の上下がすごく見切れる。 */
+  /*background-size: cover;
+  background-repeat: no-repeat;*/
+
+  /* 案②　フルスクリーンもどき（写真を水平方向に繰り返し表示）。メリット：一見フルスクリーンっぽいし、画像全体がみえる。デメリット：写真のつなぎ目がびみょーで見にくい？ */
+  background-size: contain;
+  background-repeat: repeat;
+
+  /* 案③　フルスクリーンではない。メリット：画像全体がみえる。デメリット：テキスト情報部分のデザインを再考する必要がある。 */
+  /*background-size: contain;
+  background-repeat: no-repeat;*/
 }
 #search .tour .gradient {
   position: absolute;
