@@ -46,14 +46,14 @@ $(window).load(function() {
     var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
     
     iconActive = new google.maps.MarkerImage('assets/pin_a.png',
-      new google.maps.Size(50,79),
-      new google.maps.Point(0,0),
-      new google.maps.Point(14,46)
+      new google.maps.Size(20,32),
+      new google.maps.Point(0,0)
+      //new google.maps.Point(6,18)
     );
     iconInactive = new google.maps.MarkerImage('assets/pin_ia.png',
-      new google.maps.Size(50,79),
-      new google.maps.Point(0,0),
-      new google.maps.Point(14,46)
+      new google.maps.Size(20,32),
+      new google.maps.Point(0,0)
+      //new google.maps.Point(6,18)
     );
     markerActive= new google.maps.Marker({
       map: map, icon: iconActive, zIndex: 99, visible: false
@@ -145,6 +145,8 @@ $(window).load(function() {
             <div class="pic">
               <img src="<%= @img_url %>" alt="<%= @caption %>">
             </div>
+
+            <div class="gradient"></div>
 
             <div class="text">
               <h2><%= @city %></h2>

@@ -118,20 +118,38 @@
   max-height: 800px;
   max-width: 100%;
   overflow: hidden;
-  -webkit-transition: max-width .5s ease-out;
+  /*-webkit-transition: max-width .5s ease-out;
   -moz-transition: max-width .5s ease-out;
   -ms-transition: max-width .5s ease-out;
   -o-transition: max-width .5s ease-out;
-  transition: max-width .5s ease-out;
+  transition: max-width .5s ease-out;*/
+  background-color: #000;
+  text-align: center;
 }
 #search .tour .pic img {
+  display: inline-block;
+  margin: 0 auto;
   min-height: 800px;
-  min-width: 100%;
-  -webkit-transition: margin-top .5s ease-out;
+  max-height: 800px;
+  width: auto;
+  /*-webkit-transition: margin-top .5s ease-out;
   -moz-transition: margin-top .5s ease-out;
   -ms-transition: margin-top .5s ease-out;
   -o-transition: margin-top .5s ease-out;
-  transition: margin-top .5s ease-out;
+  transition: margin-top .5s ease-out;*/
+}
+#search .tour .gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 800px;
+  width: 100%;
+  background: linear-gradient(left, #000 0%, transparent 20%, transparent 80%, #000 100%);
+  background: -webkit-linear-gradient(left, #000 0%, transparent 20%, transparent 80%, #000 100%);
+  background: -moz-linear-gradient(left, #000 0%, transparent 20%, transparent 80%, #000 100%);
+  background: -o-linear-gradient(left, #000 0%, transparent 20%, transparent 80%, #000 100%);
+  background: -ms-linear-gradient(left, #000 0%, transparent 20%, transparent 80%, #000 100%);
+  opacity: 0.4;
 }
 #search .tour .text {
   position: absolute;
