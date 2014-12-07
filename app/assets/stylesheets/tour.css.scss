@@ -177,6 +177,24 @@
   width: 300px;
 }
 
+#search .footer {
+  position: absolute;
+  z-index: 999;
+  top: 760px;
+  left: 110px;
+  font-size: 12px;
+  color: #ddd;
+}
+#search .footer a {
+  color: #ddd;
+  text-decoration: none;
+}
+#search .footer a:hover {
+  color: #ddd;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
 /* detail */
 
 #detail .instagram {
