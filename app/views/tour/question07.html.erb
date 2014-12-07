@@ -45,18 +45,18 @@ function show() {
     <div class="question">動物に生まれ変わるとしたらどっち？</div>
 
     <div class="icon">
-      <div class="icon_refresh"><a href="/question11"><%= image_tag('icon_loop_3.png') %>他の質問を選ぶ</a></div>
+      <a href="/question11"><%= image_tag('icon_loop_3.png') %>他の質問を選ぶ</a>
     </div>
   </div>
 
   <div class="pic">
-    <%= link_to image_tag('q07_l.png', :class=>"circle"), '/selection' %>
+    <span><%= link_to image_tag('q07_l.png', :class=>"circle"), '/selection' %></span>
 
     <div id="target" class="hidden">
       <%= image_tag('loading.gif') %>
     </div>
 
-    <%= link_to image_tag('q07_r.png', :class=>"circle"), '/selection' %>
+    <span><%= link_to image_tag('q07_r.png', :class=>"circle"), '/selection' %></span>
 
    </div>
 </div>

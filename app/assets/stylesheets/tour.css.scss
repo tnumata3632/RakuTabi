@@ -71,6 +71,13 @@
 #select .pic {
   text-align: center;
 }
+#select .pic span {
+  display: inline-block;
+  height: 352px;
+  width: 352px;
+  border-radius: 50%;
+  background-color: #efefef;
+}
 #select .pic .circle {
   height: 352px;
   width: 352px;
