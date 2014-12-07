@@ -76,7 +76,7 @@
   height: 352px;
   width: 352px;
   border-radius: 50%;
-  background-color: #efefef;
+  background-color: #fff;
 }
 #select .pic .circle {
   height: 352px;
@@ -106,18 +106,8 @@
   min-width: 100%;
   background-color: #000;
   background-position: center center;
-
-  /* 案①　フルスクリーン。メリット：デザイン的にはいい。デメリット：縦長写真の上下がすごく見切れる。 */
   background-size: cover;
   background-repeat: no-repeat;
-
-  /* 案②　フルスクリーンもどき（写真を繰り返し表示）。メリット：一見フルスクリーンっぽいし、画像全体がみえる。デメリット：写真のつなぎ目がびみょーで見にくい？ */
-  /*background-size: contain;
-  background-repeat: repeat;*/
-
-  /* 案③　フルスクリーンではない。メリット：画像全体がみえる。デメリット：テキスト情報部分のデザインを再考する必要がある。 */
-  /*background-size: contain;
-  background-repeat: no-repeat;*/
 }
 #search .tour .gradient {
   position: absolute;
