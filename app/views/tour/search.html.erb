@@ -109,15 +109,6 @@ $(window).load(function() {
   }
 
   google.maps.event.addDomListener(window, 'load', initialize);
-
-  $(document).ready( function(){
-    $('.tooltip').darkTooltip({
-        opacity: 1,
-        animation: 'fadeIn',
-        gravity: 'south',
-        theme:'light'
-    });
-  });
 </script>
 <% end %>
 
@@ -142,7 +133,7 @@ $(window).load(function() {
         <!-- HTMLで出力 -->
         <li>
           <div class="tour">
-            <div class="pic" style="background-image:url('<%= @img_url %>');">
+            <div class="pic" style="background-image: url('<%= @img_url %>');">
             </div>
 
             <div class="gradient"></div>
@@ -158,24 +149,23 @@ $(window).load(function() {
               </div>
               
               <div class="icon">
-                <span class="fa-stack fa-lg">
-                  <a class="tooltip" data-tooltip="もっと写真をみる" href="<%= "/detail?tourid=" + item['id'] %>" target="_blank">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-camera fa-stack-1x" style="color: #333;"></i>
+                <div class="tooltip" title="もっと写真をみる">
+                  <a href="<%= "/detail?tourid=" + item['id'] %>" target="_blank">
+                    <span><%= image_tag('icon_camera_3.png') %></span>
                   </a>
-                </span>
-                <span class="fa-stack fa-lg">
-                  <a class="tooltip" data-tooltip="ここに行けるツアーをみる" href="<%= @tour_url %>" target="_blank">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-suitcase fa-stack-1x" style="color: #333;"></i>
+                </div>
+
+                <div class="tooltip" title="ここに行けるツアーをみる">
+                  <a href="<%= @tour_url %>" target="_blank">
+                    <span><%= image_tag('icon_suitcase_3.png') %></span>
                   </a>
-                </span>
-                <span class="fa-stack fa-lg">
-                  <a class="tooltip" data-tooltip="最初からやり直す" href="/question11">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-mail-reply fa-stack-1x" style="color: #333;"></i>
+                </div>
+                
+                <div class="tooltip" title="最初からやり直す">
+                  <a href="/question11">
+                    <span><%= image_tag('icon_back_3.png') %></span>
                   </a>
-                </span>
+                </div>
               </div>
             </div>
           </div>
@@ -192,3 +182,11 @@ $(window).load(function() {
 
   </div>
 <% end %>
+
+<script>
+$(document).ready( function(){
+  $('.tooltip').powerTip({
+    placement: 'nw-alt'
+  });
+});
+</script>
