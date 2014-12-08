@@ -26,24 +26,15 @@ function show() {
       </div>
         
       <div class="breadcrumb">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-circle-thin fa-stack-2x" style="color: #ddd;"></i>
-          <i class="fa fa-question fa-stack-1x" style="color: #ddd;"></i>
-        </span>
+        <span class="question"><%= image_tag('icon_question_d.png') %></span>
 
-        <i class="fa fa-caret-right" style="color: #ddd; padding: 0 10px;"></i>
+        <span class="arrow"><%= image_tag('icon_arrow_d.png') %></span>
 
-        <span class="fa-stack fa-lg" style="color: #fff;">
-          <i class="fa fa-circle-thin fa-stack-2x" style="color: #333;"></i>
-          <i class="fa fa-question fa-stack-1x" style="color: #333;"></i>
-        </span>
+        <span class="question"><%= image_tag('icon_question_3.png') %></span>
 
-        <i class="fa fa-caret-right" style="color: #ddd; padding: 0 10px;"></i>
+        <span class="arrow"><%= image_tag('icon_arrow_d.png') %></span>
 
-        <span class="fa-stack fa-lg" style="color: #fff;">
-          <i class="fa fa-circle-thin fa-stack-2x" style="color: #ddd;"></i>
-          <i class="fa fa-plane fa-stack-1x" style="color: #ddd;"></i>
-        </span>
+        <span class="airplane"><%= image_tag('icon_airplane_d.png') %></span>
       </div>
 
       <div style="clear: both;"></div>
@@ -54,26 +45,17 @@ function show() {
     <div class="question">好きな写真はどっち？</div>
 
     <div class="icon">
-      <div class="icon_refresh"><a href="javascript:location.reload(true);"><i class="fa fa-refresh fa-fw"></i>どっちも好きじゃない</a></div>
+      <a href="javascript:location.reload(true);"><%= image_tag('icon_loop_3.png') %>どっちも好きじゃない</a>
     </div>     
   </div>
   
   <div class="pic">
-    <%= link_to image_tag(@image_l.path, :class => "circle"), '/tour?imgid=' + @image_l.image_id, {:onclick => "show();", data: {no_turbolink: true}} %>
+    <span><%= link_to image_tag(@image_l.path, :class => "circle"), '/tour?imgid=' + @image_l.image_id, {:onclick => "show();", data: {no_turbolink: true}} %></span>
 
     <div id="target" class="hidden">
-      <div id="loading">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-        <div class="bar4"></div>
-        <div class="bar5"></div>
-        <div class="bar6"></div>
-        <div class="bar7"></div>
-        <div class="bar8"></div>
-      </div>
+      <%= image_tag('loading.gif') %>
     </div>
     
-    <%= link_to image_tag(@image_r.path, :class => "circle"), '/tour?imgid=' + @image_r.image_id, {:onclick => "show();", data: {no_turbolink: true}} %>
+    <span><%= link_to image_tag(@image_r.path, :class => "circle"), '/tour?imgid=' + @image_r.image_id, {:onclick => "show();", data: {no_turbolink: true}} %></span>
   </div>
 </div>
