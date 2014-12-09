@@ -49,6 +49,28 @@ class TourController < ApplicationController
     @hashtag = destination.get_hashtag_for_instagram()
   end
 
+  def ask
+    # begin
+
+    if params[:askid].nil?
+      ask = Ask.all.sample(1)
+      @next= "/ask?askid=" + ask[0].id.to_s
+      @current= "/ask?askid=" + ask[0].id.to_s
+     else
+      begin
+        ask = Ask.all.sample(1)
+      end while (params[:askid] == ask[0].id.to_s)
+      @next= "/selection"
+      @current= "/ask?askid=" + ask[0].id.to_s
+    end
+
+
+    # end while (images[0].image_id == images[1].image_id)
+
+    @ask= ask[0]
+
+  end
+
   private
     def set_request
       Thread.current[:request] = request
@@ -60,3 +82,4 @@ class TourController < ApplicationController
     end
 
 end
+

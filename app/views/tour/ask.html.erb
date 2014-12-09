@@ -51,15 +51,15 @@ function show() {
   </div>
 
   <div class="title">
-    <div class="question">動物に生まれ変わるとしたらどっち？</div>
+    <div class="question"><%= @ask.question %></div>
 
     <div class="icon">
-      <div class="icon_refresh"><a href="/question11"><i class="fa fa-refresh fa-fw"></i>他の質問を選ぶ</a></div>
+      <div class="icon_refresh"><a href="<%= @current %>"><i class="fa fa-refresh fa-fw"></i>他の質問を選ぶ</a></div>
     </div>
   </div>
 
   <div class="pic">
-    <%= link_to image_tag('q07_l.png', :class=>"circle"), '/selection' %>
+    <%= link_to image_tag(@ask.image_l, :class=>"circle"),@next %>
 
      <div id="target" class="hidden">
        <div id="loading">
@@ -74,7 +74,7 @@ function show() {
        </div>
      </div>
 
-    <%= link_to image_tag('q07_r.png', :class=>"circle"), '/selection' %>
+    <%= link_to image_tag(@ask.image_r, :class=>"circle"),@next %>
 
    </div>
 </div>
