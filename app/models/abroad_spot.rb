@@ -19,7 +19,7 @@ class AbroadSpot
         "count" => count
       })
       jsonData = JSON.parse data
-      # Rails.logger.debug('<results_available> = ' + jsonData['results']['results_available'].to_s)
+      Rails.logger.debug('<spots_available> = ' + jsonData['results']['results_available'].to_s)
       # Rails.logger.debug('<results_returned>  = ' + jsonData['results']['results_returned'].to_s)
       rescue HTTPClient::BadResponseError => e
       rescue HTTPClient::TimeoutError => e
