@@ -141,13 +141,6 @@ $(window).load(function() {
             <div class="text">
               <h2><%= @city %></h2>
               
-              <% @timedif = item['dest']['lng'].to_i/15 %> 
-              <div class="info">
-                今の時間 <%= (Time.now + 3600 * @timedif).strftime("%Y.%m.%d %H:%M")  %> (日本との時差 -<%= @timedif - 9 %>時間)<br />
-                今日の天気<br />
-                観光スポット
-              </div>
-              
               <div class="icon">
                 <div class="tooltip" title="もっと写真をみる">
                   <a href="<%= "/detail?tourid=" + item['id'] %>" target="_blank">
@@ -167,6 +160,18 @@ $(window).load(function() {
                   </a>
                 </div>
               </div>
+
+              <% @timedif = item['dest']['lng'].to_i/15 %>
+              <div class="info">
+                今の時間 <%= (Time.now + 3600 * @timedif).strftime("%Y.%m.%d %H:%M")  %> (日本との時差 -<%= @timedif - 9 %>時間)<br />
+                観光スポット<br />
+                <ul>
+                <% item['spots'].each do |spot| %>
+                  <li><%= spot['name'] %>
+                <% end %>
+                </ul>
+              </div>
+
             </div>
           </div>
         </li>
