@@ -48,10 +48,14 @@ class AbroadTour
     # 引数で指定された件数のツアー情報を配列で返す
     # return hash.values[(start-1)...(start-1+count)]
     # Sprint4暫定ロジック。ランダムに10個返す
+    spotModel = AbroadSpot.new
     tours = toursHash.values.sample(count).sort{|a, b| a["dest"]["lng"].to_i <=> b["dest"]["lng"].to_i}
     tours.each do |tour|
       dest = Destination.new(lat: tour["dest"]["lat"], lng: tour["dest"]["lng"])
+      # パノラミオ画像URL取得
       tour["panoramio_photos"] = dest.get_panoramio_photos
+      # スポット情報取得
+      tour["spots"] = spotModel.get_spots(city: tour["dest"]["code"], count: 100)['results']['spot'].sample(10)
     end
     return tours
   end
