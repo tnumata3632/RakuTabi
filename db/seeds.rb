@@ -64,7 +64,7 @@ Dir.glob('db/city/*') {|f|
   end
 }
 
-Ask.create([question: '腕を組んだ時、どちらの腕が上に来てる？', image_l: 'q00_l.png', image_r: 'q00_r.png'])
+Ask.create([question: '腕を組んだ時、どちらの腕が上にきてる？', image_l: 'q00_l.png', image_r: 'q00_r.png'])
 Ask.create([question: 'ドラえもんの道具を一つだけもらえるなら？', image_l: 'q02_l.png', image_r: 'q02_r.png'])
 Ask.create([question: '時間旅行するなら？', image_l: 'q05_l.png', image_r: 'q05_r.png'])
 Ask.create([question: '動物に生まれ変わるとしたらどっち？', image_l: 'q07_l.png', image_r: 'q07_r.png'])
