@@ -44,7 +44,7 @@ $(window).load(function() {
       styles: styles
     };
     var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-    
+
     iconActive = new google.maps.MarkerImage('assets/pin_a.png',
       new google.maps.Size(20,32),
       new google.maps.Point(0,0)
@@ -140,7 +140,7 @@ $(window).load(function() {
 
             <div class="text">
               <h2><%= @city %></h2>
-              
+
               <div class="icon">
                 <div class="tooltip" title="もっと写真をみる">
                   <a href="<%= "/detail?tourid=" + item['id'] %>" target="_blank">
@@ -153,9 +153,9 @@ $(window).load(function() {
                     <span><%= image_tag('icon_suitcase_3.png') %></span>
                   </a>
                 </div>
-                
+
                 <div class="tooltip" title="最初からやり直す">
-                  <a href="/question11">
+                  <a href="/ask">
                     <span><%= image_tag('icon_back_3.png') %></span>
                   </a>
                 </div>
