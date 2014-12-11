@@ -1,0 +1,46 @@
+  <div class="nav">
+    <div class="row">
+      <div class="logo">
+        <a href="/" alt="Home">
+          <%= image_tag('logo_s.png', :alt => 'タビノタネ') %>
+        </a>
+      </div>
+
+      <div class="breadcrumb">
+
+        <span class="question">
+          <% if @next != "/selection" && !@next.nil? %>
+            <%= image_tag('icon_question_3.png') %>
+          <% else %>
+            <%= image_tag('icon_question_d.png') %>
+          <% end %>
+        </span>
+        
+        <span class="arrow"><%= image_tag('icon_arrow_d.png') %></span>
+
+        <span class="question">
+          <% if @next == "/selection" %>
+            <%= image_tag('icon_question_3.png') %>
+          <% else %>
+            <%= image_tag('icon_question_d.png') %>
+          <% end %>
+        </span>
+
+        <span class="arrow"><%= image_tag('icon_arrow_d.png') %></span>
+
+        <span class="question">
+          <% if @next.nil? %>
+            <%= image_tag('icon_question_3.png') %>
+          <% else %>
+            <%= image_tag('icon_question_d.png') %>
+          <% end %>
+        </span>
+
+        <span class="arrow"><%= image_tag('icon_arrow_d.png') %></span>
+
+        <span class="airplane"><%= image_tag('icon_airplane_d.png') %></span>
+      </div>
+
+      <div style="clear: both;"></div>
+    </div>
+  </div>

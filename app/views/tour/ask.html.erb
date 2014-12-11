@@ -1,7 +1,7 @@
 <script>
 var count = 0;
 function rotate() {
-  var elem = document.getElementById('loading');
+  22222ｗｓ2var elem = document.getElementById('loading');
   elem.style.MozTransform = 'scale(0.5) rotate('+count+'deg)';
   elem.style.WebkitTransform = 'scale(0.5) rotate('+count+'deg)';
   if (count==360) { count = 0 }
@@ -20,20 +20,26 @@ function show() {
   <%= render 'nav' %>
 
   <div class="title">
-    <div class="question">好きな写真はどっち？</div>
+    <div class="question"><%= @ask.question %></div>
 
     <div class="icon">
-      <a href="javascript:location.reload(true);"><%= image_tag('icon_loop_3.png') %>どっちも好きじゃない</a>
-    </div>     
+      <% if @next != "/selection" %>
+        <a href="/ask">
+      <% else %>
+        <a href="<%= @current %>">
+      <% end %>
+        <%= image_tag('icon_loop_3.png') %>他の質問を選ぶ</a>
+    </div>
   </div>
-  
+
   <div class="pic">
-    <span><%= link_to image_tag(@image_l.path, :class => "circle"), '/tour?imgid=' + @image_l.image_id, {:onclick => "show();", data: {no_turbolink: true}} %></span>
+    <span><%= link_to image_tag(@ask.image_l, :class=>"circle"),@next %></span>
 
     <div id="target" class="hidden">
       <%= image_tag('loading.gif') %>
     </div>
-    
-    <span><%= link_to image_tag(@image_r.path, :class => "circle"), '/tour?imgid=' + @image_r.image_id, {:onclick => "show();", data: {no_turbolink: true}} %></span>
-  </div>
+
+    <span><%= link_to image_tag(@ask.image_r, :class=>"circle"),@next %></span>
+
+   </div>
 </div>
