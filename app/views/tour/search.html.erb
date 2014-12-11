@@ -32,7 +32,7 @@ $(window).load(function() {
     display: none;
   }
   #detail {
-    width: 1210px;
+    width: 1224px;
     height: 650px;
     padding: 30px; 
     display:none;
@@ -143,7 +143,8 @@ $(window).load(function() {
   function didLoadInstagram(event, response) {
     var that = this;
     $.each(response.data, function(i, photo) {
-      $(that).append(createPhotoElement(photo));
+      //$(that).append(createPhotoElement(photo));
+      $('#instagramphoto').append(createPhotoElement(photo));
     });
   }
 
