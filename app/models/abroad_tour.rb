@@ -51,7 +51,15 @@ class AbroadTour
     spotModel = AbroadSpot.new
     tours = toursHash.values.sample(count).sort{|a, b| a["dest"]["lng"].to_i <=> b["dest"]["lng"].to_i}
     tours.each do |tour|
-      dest = Destination.new(lat: tour["dest"]["lat"], lng: tour["dest"]["lng"])
+      lat = tour["dest"]["lat"]
+      lng = tour["dest"]["lng"]
+      city = tour["dest"]["name"]
+      cityCode = tour["dest"]["code"]
+      country = tour["dest"]["country"]["name"]
+      dest = Rails.cache.fetch(cityCode, expires_in: CACHE_EXPIRE) do
+        Destination.new(city: city, cityCode: cityCode, country: country, lat: lat, lng: lng)
+      end
+      # dest = Destination.new(lat: tour["dest"]["lat"], lng: tour["dest"]["lng"])
       # パノラミオ画像URL取得
       tour["panoramio_photos"] = dest.get_panoramio_photos
       # スポット情報取得

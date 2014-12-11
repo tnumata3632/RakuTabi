@@ -1,0 +1,22 @@
+$('#detail').html("<%=j render partial: 'detail', locals: { cityname: @hashtag } %>");
+$('.instagram.food').on('didLoadInstagram', didLoadInstagram);
+$('.instagram.food').instagram({
+  hash: '<%= @hashtag %>' + 'food',
+  clientId: '954787f7f2b6464b98dbb73fb2492523'
+});
+$('.instagram.view').on('didLoadInstagram', didLoadInstagram);
+$('.instagram.view').instagram({
+  hash: '<%= @hashtag %>' + 'view',
+  clientId: '954787f7f2b6464b98dbb73fb2492523'
+});
+$('.instagram.arch').on('didLoadInstagram', didLoadInstagram);
+$('.instagram.arch').instagram({
+  hash: '<%= @hashtag %>' + 'architecture',
+  clientId: '954787f7f2b6464b98dbb73fb2492523'
+});
+$('.instagram.sight').on('didLoadInstagram', didLoadInstagram);
+$('.instagram.sight').instagram({
+  hash: '<%= @hashtag %>' + 'sightseeing',
+  clientId: '954787f7f2b6464b98dbb73fb2492523'
+});
+$('#modallink').trigger("click");
