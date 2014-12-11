@@ -9,8 +9,7 @@ Rails.application.routes.draw do
   get 'tour' => 'tour#search'
   get 'selection' => 'tour#select'
   get 'detail' => 'tour#detail'
-  get 'question07' => 'tour#question07'
-  get 'question11' => 'tour#question11'
+  get 'ask' => 'tour#ask'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
