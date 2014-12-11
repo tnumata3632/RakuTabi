@@ -139,7 +139,10 @@ $(window).load(function() {
             <div class="gradient"></div>
 
             <div class="text">
-              <h2><%= @city %></h2>
+              <div class="destination">
+                <p class="title">あなたにオススメの場所は</p>
+                <h2><%= @city %></h2>
+              </div>
 
               <div class="icon">
                 <div class="tooltip" title="もっと写真をみる">
@@ -148,13 +151,13 @@ $(window).load(function() {
                   </a>
                 </div>
 
-                <div class="tooltip" title="ここに行けるツアーをみる">
+                <div class="tooltip space" title="ここに行けるツアーをみる">
                   <a href="<%= @tour_url %>" target="_blank">
                     <span><%= image_tag('icon_suitcase_3.png') %></span>
                   </a>
                 </div>
 
-                <div class="tooltip" title="最初からやり直す">
+                <div class="tooltip space" title="最初からやり直す">
                   <a href="/ask">
                     <span><%= image_tag('icon_back_3.png') %></span>
                   </a>
@@ -162,10 +165,14 @@ $(window).load(function() {
               </div>
 
               <% @timedif = item['dest']['lng'].to_i/15 %>
-              <div class="info">
-                今の時間 <%= (Time.now + 3600 * @timedif).strftime("%Y.%m.%d %H:%M")  %> (日本との時差 -<%= @timedif - 9 %>時間)<br />
+              <div class="time">
+                <p class="title">今の時間</p>
+                <%= (Time.now + 3600 * @timedif).strftime("%Y.%m.%d %H:%M")  %> (日本との時差 -<%= @timedif - 9 %>時間)
+              </div>
+
+              <div class="spot">
                 <% if item['spots'].count > 0 %>
-                  観光スポット<br />
+                <p class="title">観光スポット</p>
                 <% end %>
                 <ul>
                 <% item['spots'].each do |spot| %>
@@ -173,8 +180,8 @@ $(window).load(function() {
                 <% end %>
                 </ul>
               </div>
-
             </div>
+
           </div>
         </li>
 
@@ -197,7 +204,7 @@ $(window).load(function() {
 <script>
 $(document).ready( function(){
   $('.tooltip').powerTip({
-    placement: 'nw-alt'
+    placement: 'n'
   });
 });
 </script>
