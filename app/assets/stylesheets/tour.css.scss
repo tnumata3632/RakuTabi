@@ -129,25 +129,38 @@
   width: 360px;
   height: 800px;
   background-color: rgba(0,0,0,0.4);
-  font-size: 12px;
+  font-size: 13px;
   color: #fff;
+  text-align: center;
 }
-#search .tour .text h2 {
+#search .tour .text .title {
+  color: #ccc;
+  margin-bottom: 10px;
+}
+#search .tour .text .destination {
   margin: 50px 30px 0 30px;
+}
+#search .tour .text .destination h2 {
   padding: 0;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: normal;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
 }
-#search .tour .info {
-  margin: 10px 30px 0 30px;
-  line-height: 200%;
+#search .tour .time, #search .tour .spot, #search .tour .icon {
+  margin: 40px 30px 0 30px;
 }
-#search .tour .icon {
-  margin: 50px 30px 0 30px;
+#search .tour .spot ul {
+  -webkit-padding-start: 0;
+}
+#search .tour .spot li {
+  list-style-type: none;
+}
+#search .tour .icon .space {
+  margin-left: 20px;
 }
 #search .tour .icon div {
   display: inline-block;
-  margin-right: 10px;
   height: 30px;
   width: 30px;
   border-radius: 50%;
@@ -178,16 +191,18 @@
   position: absolute;
   z-index: 999;
   top: 760px;
-  left: 110px;
+  left: 80px;
+  width: 360px;
   font-size: 12px;
   color: #ddd;
+  text-align: center;
 }
 #search .footer a {
-  color: #ddd;
+  color: #ccc;
   text-decoration: none;
 }
 #search .footer a:hover {
-  color: #ddd;
+  color: #ccc;
   text-decoration: none;
   opacity: 0.8;
 }

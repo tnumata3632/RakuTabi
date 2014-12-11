@@ -63,7 +63,7 @@ class AbroadTour
       # パノラミオ画像URL取得
       tour["panoramio_photos"] = dest.get_panoramio_photos
       # スポット情報取得
-      tour["spots"] = spotModel.get_spots(city: tour["dest"]["code"], count: 100)['results']['spot'].sample(10)
+      tour["spots"] = spotModel.get_spots(city: tour["dest"]["code"], count: 100)['results']['spot'].sample(5)
     end
     return tours
   end
