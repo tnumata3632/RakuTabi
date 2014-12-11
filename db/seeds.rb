@@ -59,7 +59,14 @@ Dir.glob('db/city/*') {|f|
   p s
   country = s[7...s.index('(')]
   reader.each do |row|
-    City.create(:country => country, :city_jp => row[0], :city_en => row[1], :lat => row[2], 
+    City.create(:country => country, :city_jp => row[0], :city_en => row[1], :lat => row[2],
                 :lng => row[3], :city_type => row[4], :layer => row[5], :code_no => row[6])
   end
 }
+
+Ask.create([question: '腕を組んだ時、どちらの腕が上にきてる？', image_l: 'q00_l.png', image_r: 'q00_r.png'])
+Ask.create([question: 'ドラえもんの道具を一つだけもらえるなら？', image_l: 'q02_l.png', image_r: 'q02_r.png'])
+Ask.create([question: '時間旅行するなら？', image_l: 'q05_l.png', image_r: 'q05_r.png'])
+Ask.create([question: '動物に生まれ変わるとしたらどっち？', image_l: 'q07_l.png', image_r: 'q07_r.png'])
+Ask.create([question: '気になるカードはどっち？', image_l: 'q11_l.png', image_r: 'q11_r.png'])
+Ask.create([question: '気になる札はどっち？', image_l: 'q12_l.png', image_r: 'q12_r.png'])
