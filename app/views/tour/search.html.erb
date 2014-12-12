@@ -21,6 +21,26 @@ $(window).load(function() {
   html { height: 100% }
   body { height: 100%; margin: 0; padding: 0 }
   #map_canvas { height: 100% }
+  #lean_overlay {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000;
+    display: none;
+  }
+  #detail {
+    width: 1224px;
+    height: 650px;
+    padding: 30px; 
+    display:none;
+    overflow: scroll;
+    background: #FFF;
+    border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.7); -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.7); -moz-box-shadow: 0 0px 4px rgba(0,0,0,0.7);
+  }
 </style>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_APPID"] %>&sensor=false">
 </script>
@@ -108,13 +128,34 @@ $(window).load(function() {
     markerActive.setVisible(true);
   }
 
+  function createPhotoElement(photo) {
+    var innerHtml = $('<img>')
+        .addClass('instagram-image')
+        .attr('src', photo.images.low_resolution.url);
+
+    innerHtml = $('<a>')
+        .attr('target', '_blank')
+        .attr('href', photo.link)
+        .append(innerHtml);
+    return innerHtml;
+  }
+
+  function didLoadInstagram(event, response) {
+    var that = this;
+    $.each(response.data, function(i, photo) {
+      //$(that).append(createPhotoElement(photo));
+      $('#instagramphoto').append(createPhotoElement(photo));
+    });
+  }
+
   google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 <% end %>
 
 <% if ! @tours.nil? %>
   <div id="search">
-
+    <div id="detail">
+    </div>
     <div class="flexslider"><ul class="slides">
 
     <% @tours.each do |item| %>
@@ -152,10 +193,16 @@ $(window).load(function() {
               </div>
 
               <div class="icon">
+                <!--
                 <div class="tooltip" title="もっと写真をみる">
-                  <a href="<%= "/detail?tourid=" + item['id'] %>" target="_blank">
+                  <a href="<%= "/detail?tourid=" + item['id'] + "&citycode=" + item['dest']['code'] %>" target="_blank">
                     <span><%= image_tag('icon_camera_3.png') %></span>
                   </a>
+                </div>
+                -->
+                <div class="tooltip" title="もっと写真をみる">
+                  <span><%= link_to image_tag('icon_camera_3.png'), "/detail?tourid=" + item['id'] + "&citycode=" + item['dest']['code'], remote: true  %></span>
+                  <a id="modallink" rel="leanModal" href="#detail" style="display:none;"></a>
                 </div>
 
                 <div class="tooltip space" title="ここに行けるツアーをみる">
@@ -212,6 +259,11 @@ $(window).load(function() {
 $(document).ready( function(){
   $('.tooltip').powerTip({
     placement: 'n'
+  });
+
+  $('a[rel*=leanModal]').leanModal({
+    top: 50,                     // モーダルウィンドウの縦位置を指定 
+    closeButton: ".modal_close"  // 閉じるボタンのCSS classを指定
   });
 });
 </script>
