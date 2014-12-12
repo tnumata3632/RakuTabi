@@ -61,7 +61,7 @@ class TourController < ApplicationController
         ask = Ask.all.sample(1)
       end while (params[:askid] == ask[0].id.to_s)
       @next= "/selection"
-      @current= "/ask?askid=" + ask[0].id.to_s
+      @current= "/ask?askid=" + params[:askid]
     end
 
 
