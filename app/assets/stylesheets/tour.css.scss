@@ -236,3 +236,23 @@
   margin: 0 auto;
   width: 1224px;
 }
+
+.hashtag {
+  position: relative;
+}
+.hashtag_l, .hashtag_s {
+  position: absolute;
+  z-index: 999999;
+  text-align: center;
+  color: #f1634f;
+}
+.hashtag_l {
+  width: 1224px;
+  top: 265px;
+  font-size: 26px;
+}
+.hashtag_s {
+  width: 306px;
+  top: 125px;
+  font-size: 14px;
+}
