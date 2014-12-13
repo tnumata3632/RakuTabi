@@ -1,17 +1,23 @@
-$('#detail').html("<%=j render partial: 'detail', locals: { cityname: @hashtag } %>");
+$('#detail').html("<%=j render partial: 'detail', locals: { cityname: @cityEn } %>");
 cid = '954787f7f2b6464b98dbb73fb2492523';
-console.log('call');
 $.when(
-  console.log('start loadInstagram'),
-  loadInstagram('.instagram.tabitane', '<%= @hashtag %>' + 'tabinotane'),
-  loadInstagram('.instagram.food', '<%= @hashtag %>' + 'food'),
-  loadInstagram('.instagram.view', '<%= @hashtag %>' + 'view'),
-  loadInstagram('.instagram.arch', '<%= @hashtag %>' + 'architecture'),
-  loadInstagram('.instagram.sight', '<%= @hashtag %>' + 'sightseeing')
+  loadInstagram('.instagram.tabitane', '<%= @cityEn %>' + 'tabinotane'),
+  loadInstagram('.instagram.food', '<%= @cityEn %>' + 'food'),
+  loadInstagram('.instagram.view', '<%= @cityEn %>' + 'view'),
+  loadInstagram('.instagram.arch', '<%= @cityEn %>' + 'architecture'),
+  loadInstagram('.instagram.sight', '<%= @cityEn %>' + 'sightseeing')
 ).done(function(){
   cnt = $('#instagramphoto a').length;
-  if (cnt == 0) {
-    $('#nophoto_l').css('display', 'block');
+  if (cnt < 5) {
+    //英語都市名で5件未満の場合、日本語都市名でも検索
+    loadInstagram('.instagram.jp', '<%= @cityJp %>').done(function(){
+      cnt = $('#instagramphoto a').length;
+      if (cnt == 0) {
+        $('#nophoto_l').css('display', 'block');
+      } else {
+        $('#nophoto_s').css('display', 'block');
+      }
+    });
   } else {
     $('#nophoto_s').css('display', 'block');
   }

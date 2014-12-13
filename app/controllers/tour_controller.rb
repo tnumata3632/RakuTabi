@@ -46,7 +46,8 @@ class TourController < ApplicationController
       country = @tourDetail["dest"]["country"]["name"]
       Destination.new(city: city, cityCode: cityCode, country: country, lat: lat, lng: lng)
     end
-    @hashtag = destination.get_hashtag_for_instagram()
+    @cityEn = destination.get_cityname_en()
+    @cityJp = destination.get_cityname_jp()
   end
 
   def ask
