@@ -64,9 +64,12 @@ Dir.glob('db/city/*') {|f|
   end
 }
 
-Ask.create([question: '腕を組んだ時、どちらの腕が上にきてる？', image_l: 'q00_l.png', image_r: 'q00_r.png'])
-Ask.create([question: 'ドラえもんの道具を一つだけもらえるなら？', image_l: 'q02_l.png', image_r: 'q02_r.png'])
-Ask.create([question: '時間旅行するなら？', image_l: 'q05_l.png', image_r: 'q05_r.png'])
-Ask.create([question: '動物に生まれ変わるとしたらどっち？', image_l: 'q07_l.png', image_r: 'q07_r.png'])
-Ask.create([question: '気になるカードはどっち？', image_l: 'q11_l.png', image_r: 'q11_r.png'])
-Ask.create([question: '気になる札はどっち？', image_l: 'q12_l.png', image_r: 'q12_r.png'])
+Ask.create([question: '時間旅行するならどっち？', image_l: 'q01_l.png', image_r: 'q01_r.png'])
+Ask.create([question: '気になるカードはどっち？', image_l: 'q02_l.png', image_r: 'q02_r.png'])
+Ask.create([question: '泊まってみたいホテルはどっち？', image_l: 'q03_l.png', image_r: 'q03_r.png'])
+Ask.create([question: '実際に見てみたい青の絶景はどっち？', image_l: 'q04_l.png', image_r: 'q04_r.png'])
+Ask.create([question: '実際に見てみたい赤の絶景はどっち？', image_l: 'q05_l.png', image_r: 'q05_r.png'])
+Ask.create([question: '実際に見てみたい緑の絶景はどっち？', image_l: 'q06_l.png', image_r: 'q06_r.png'])
+Ask.create([question: '実際に見てみたい黄色の絶景はどっち？', image_l: 'q07_l.png', image_r: 'q07_r.png'])
+Ask.create([question: '実際に見てみたい白の絶景はどっち？', image_l: 'q08_l.png', image_r: 'q08_r.png'])
+Ask.create([question: '動物になって遠くへ行けるとしたらどっち？', image_l: 'q09_l.png', image_r: 'q09_r.png'])
