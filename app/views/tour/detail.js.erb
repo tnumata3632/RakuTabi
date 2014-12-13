@@ -1,5 +1,25 @@
 $('#detail').html("<%=j render partial: 'detail', locals: { cityname: @hashtag } %>");
-cid = '954787f7f2b6464b98dbb73fb2492523'
+cid = '954787f7f2b6464b98dbb73fb2492523';
+console.log('call');
+$.when(
+  console.log('start loadInstagram'),
+  // $('#modallink').trigger("click");
+  loadInstagram('.instagram.tabitane', '<%= @hashtag %>' + 'tabinotane'),
+  loadInstagram('.instagram.food', '<%= @hashtag %>' + 'food'),
+  loadInstagram('.instagram.view', '<%= @hashtag %>' + 'view'),
+  loadInstagram('.instagram.arch', '<%= @hashtag %>' + 'architecture'),
+  loadInstagram('.instagram.sight', '<%= @hashtag %>' + 'sightseeing')
+).done(function(){
+  cnt = $('#instagramphoto a').length;
+  if (cnt == 0) {
+    $('#nophoto_l').css('display', 'block');
+  } else {
+    $('#nophoto_s').css('display', 'block');
+  }
+  $('#modallink').trigger("click");
+});
+
+/*
 $('.instagram.tabitane').on('didLoadInstagram', didLoadInstagram);
 $('.instagram.tabitane').instagram({
   hash: '<%= @hashtag %>' + 'tabitane',
@@ -25,4 +45,5 @@ $('.instagram.sight').instagram({
   hash: '<%= @hashtag %>' + 'sightseeing',
   clientId: cid
 });
+*/
 $('#modallink').trigger("click");
