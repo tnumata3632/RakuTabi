@@ -161,10 +161,12 @@ $(window).load(function() {
       <% if ! item['img'].empty? %>
 
         <!-- データを変数に格納 -->
-        <% item['panoramio_photos'].sample(1).each do |photo| %>
-          <% @img_url = photo['photo_file_url'] %>
-          <% @caption = photo['photo_title'] %>
-        <% end %>
+        <% photo = item['panoramio_photos'].sample(1)[0] %>
+        <% @img_url = photo['photo_file_url'] %>
+        <% @caption = photo['photo_title'] %>
+        <% @photo_url = photo['photo_url'] %>
+        <% @photo_owner = photo['owner_name'] %>
+        <% @photo_owner_url = photo['owner_url'] %>
 
         <% @tour_url = item['urls']['pc'] %>
         <% @title = item['title'] %>
@@ -174,6 +176,13 @@ $(window).load(function() {
         <li>
           <div class="tour">
             <div class="pic" style="background-image: url('<%= @img_url %>');">
+              <div class="panoramio">
+                <img src="http://www.panoramio.com/img/panoramio-marker.png" />
+                <br />
+                <a href='<%= @photo_url %>' target="_blank">Photo</a> by <a href='<%= @photo_owner_url %>' target="_blank"><%= @photo_owner %></a>
+                <br />
+                Photos provided by Panoramio are under the copyright of their owners.
+              </div>
             </div>
 
             <div class="gradient"></div>
