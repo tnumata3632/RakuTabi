@@ -176,8 +176,10 @@ $(window).load(function() {
         <li>
           <div class="tour">
             <div class="pic" style="background-image: url('<%= @img_url %>');">
-              <div style="position: absolute; bottom: 0; right: 0; text-align: right;">
-                <!--<a href='<%= @photo_url %>'>Photo</a>-->author: <a href='<%= @photo_owner_url %>'><%= @photo_owner %></a>
+              <div class="panoramio">
+                <img src="http://www.panoramio.com/img/panoramio-marker.png" />
+                <br />
+                <a href='<%= @photo_url %>' target="_blank">Photo</a> by <a href='<%= @photo_owner_url %>' target="_blank"><%= @photo_owner %></a>
                 <br />
                 Photos provided by Panoramio are under the copyright of their owners.
               </div>
