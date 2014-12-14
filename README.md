@@ -26,6 +26,6 @@
 世界はひろい。
 タビノタネで新しい発見をしてください。
 
-###サービス紹介ムービーは[こちら](http://vimeo.com/114439010)です。
+###サービス紹介ムービーは<a href="http://vimeo.com/114439010#t=0m0s" target="_blank">こちら</a>です。
 --
 This software is released under the MIT License, see [LICENSE.txt](https://github.com/tnumata3632/RakuTabi/blob/master/LICENSE.txt).
