@@ -29,17 +29,23 @@ class Destination
     return jsonData
   end
 
-  def get_hashtag_for_instagram
+  def get_cityname_en
     city = City.find_by(city_jp: @city)
     ap city
     if city.nil?
       city = City.newInstanceByAbroadApi(@cityCode)
     end
     cityname = city.city_en.gsub(" ", "").split(".")[0]
-    p cityname
-    tag = cityname
-    #url = "https://api.instagram.com/v1/tags/#{foodtag}/media/recent"
-    #data = call_api(url, {"client_id" => INSTAGRAM_CLIENT_ID})
+    if cityname == "*"
+      # ABRoad APIで英語都市名が未登録の場合は、日本語都市名を返す
+      # （後続処理でエラーが発生しないように）
+      return get_cityname_jp
+    end
+    return cityname
+  end
+
+  def get_cityname_jp
+    return @city.split(/\s*(（|\()\s*/)[0].delete("・").delete(" ").delete("　")
   end
 
   def get_instagram_photos

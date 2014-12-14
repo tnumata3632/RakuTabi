@@ -139,12 +139,21 @@ $(window).load(function() {
     return innerHtml;
   }
 
-  function didLoadInstagram(event, response) {
-    var that = this;
-    $.each(response.data, function(i, photo) {
-      //$(that).append(createPhotoElement(photo));
-      $('#instagramphoto').append(createPhotoElement(photo));
+  function loadInstagram(divclass, hashtag) {
+    var dfd = jQuery.Deferred();
+    $(divclass).on('didLoadInstagram', function(event, response) {
+      var that = this;
+      $.each(response.data, function(i, photo) {
+        $('#instagramphoto').append(createPhotoElement(photo));
+      });
+      console.log(response);
+      dfd.resolve();
     });
+    $(divclass).instagram({
+      hash: hashtag,
+      clientId: cid
+    });
+    return dfd.promise();
   }
 
   google.maps.event.addDomListener(window, 'load', initialize);
