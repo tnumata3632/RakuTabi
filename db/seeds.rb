@@ -64,7 +64,7 @@ Dir.glob('db/city/*') {|f|
   end
 }
 
-Ask.create([question: '時間旅行するならどっち？', image_l: 'q01_l.png', image_r: 'q01_r.png'])
+Ask.create([question: '時間旅行するなら未来と過去どっち？', image_l: 'q01_l.png', image_r: 'q01_r.png'])
 Ask.create([question: '気になるカードはどっち？', image_l: 'q02_l.png', image_r: 'q02_r.png'])
 Ask.create([question: '泊まってみたいホテルはどっち？', image_l: 'q03_l.png', image_r: 'q03_r.png'])
 Ask.create([question: '実際に見てみたい青の絶景はどっち？', image_l: 'q04_l.png', image_r: 'q04_r.png'])
