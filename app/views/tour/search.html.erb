@@ -39,6 +39,16 @@ $(window).load(function() {
     overflow: scroll;
     background: #fff;
   }
+  .modal_close { 
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block; 
+    width: 30px;
+    height: 30px; 
+    background: url(/assets/icon_cross_3.png);
+    z-index: 999999;
+  }
 </style>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_APPID"] %>&sensor=false">
 </script>
