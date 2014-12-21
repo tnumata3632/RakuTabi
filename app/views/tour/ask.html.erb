@@ -1,7 +1,6 @@
 <script>
 function show() {
-  var elem = document.getElementById('target');
-  elem.className = "visible"
+  document.getElementById('target').className = "visible"
 }
 </script>
 
@@ -25,10 +24,12 @@ function show() {
     <span><%= link_to image_tag(@ask.image_l, :class=>"circle"),@next %></span>
 
     <div id="target" class="hidden">
-      <%= image_tag('loading.gif') %>
+      <%= image_tag('loading_b.gif') %>
     </div>
 
     <span><%= link_to image_tag(@ask.image_r, :class=>"circle"),@next %></span>
+  </div>
 
-   </div>
+  <%= render 'footer' %>
 </div>
+

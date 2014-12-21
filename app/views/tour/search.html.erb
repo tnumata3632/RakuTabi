@@ -23,11 +23,11 @@ $(window).load(function() {
   #map_canvas { height: 100% }
   #lean_overlay {
     position: fixed;
-    z-index:100;
+    z-index: 100;
     top: 0px;
     left: 0px;
-    height:100%;
-    width:100%;
+    height: 100%;
+    width: 100%;
     background: #000;
     display: none;
   }
@@ -35,10 +35,19 @@ $(window).load(function() {
     width: 1224px;
     height: 650px;
     padding: 30px; 
-    display:none;
+    display: none;
     overflow: scroll;
-    background: #FFF;
-    box-shadow: 0px 0px 4px rgba(0,0,0,0.7); -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.7); -moz-box-shadow: 0 0px 4px rgba(0,0,0,0.7);
+    background: #fff;
+  }
+  .modal_close { 
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block; 
+    width: 30px;
+    height: 30px; 
+    background: url(/assets/icon_cross_3.png);
+    z-index: 999999;
   }
 </style>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_APPID"] %>&sensor=false">
@@ -211,7 +220,7 @@ $(window).load(function() {
                 </div>
                 -->
                 <div class="tooltip" title="もっと写真をみる">
-                  <span><%= link_to image_tag('icon_camera_3.png'), "/detail?tourid=" + item['id'] + "&citycode=" + item['dest']['code'], remote: true  %></span>
+                  <span><%= link_to image_tag('icon_camera_3.png'), "/detail?tourid=" + item['id'] + "&citycode=" + item['dest']['code'], {:onclick => "show();", data: {no_turbolink: true}, remote: true} %></span>
                   <a id="modallink" rel="leanModal" href="#detail" style="display:none;"></a>
                 </div>
 
@@ -262,6 +271,10 @@ $(window).load(function() {
     Copyright &copy; <a href="/" alt="Home">Tabinotane</a>. All rights reserved.
   </div>
 
+  <div id="spinner" class="hidden">
+    <%= image_tag('loading_w.gif') %>
+  </div>
+
   </div>
 <% end %>
 
@@ -270,10 +283,13 @@ $(document).ready( function(){
   $('.tooltip').powerTip({
     placement: 'n'
   });
+});
 
+function show() {
+  document.getElementById('spinner').className = "visible";
   $('a[rel*=leanModal]').leanModal({
     top: 50,                     // モーダルウィンドウの縦位置を指定 
     closeButton: ".modal_close"  // 閉じるボタンのCSS classを指定
   });
-});
+}
 </script>
