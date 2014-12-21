@@ -41,19 +41,18 @@
 #select .nav .breadcrumb {
   float: right;
 }
-#select .nav .breadcrumb .question img {
-  height: 24px;
-}
-#select .nav .breadcrumb .airplane img {
-  height: 20px;
+#select .nav .breadcrumb .question img, #select .nav .breadcrumb .airplane img {
+  height: 34px;
+  position: relative;
+  top: 2px;
 }
 #select .nav .breadcrumb .arrow img {
   height: 20px;
+  position: relative;
+  top: -4px;
 }
 #select .nav .breadcrumb img {
   padding-left: 10px;
-  position: relative;
-  top: 6px;
 }
 
 #select .title {
@@ -229,6 +228,21 @@
   text-decoration: none;
   opacity: 0.8;
 }
+
+#search #spinner {
+  height: 800px;
+  line-height: 800px;
+  width: 100%;
+  background-color: rgba(0,0,0,0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  vertical-align: middle;
+  text-align: center;
+}
+#search .hidden { visibility: hidden; }
+#search .visible { visibility: visible; }
 
 /* detail */
 

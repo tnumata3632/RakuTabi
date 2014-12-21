@@ -1,7 +1,6 @@
 <script>
 function show() {
-  var elem = document.getElementById('target');
-  elem.className = "visible"
+  document.getElementById('target').className = "visible"
 }
 </script>
 
@@ -20,7 +19,7 @@ function show() {
     <span><%= link_to image_tag(@image_l.path, :class => "circle"), '/tour?imgid=' + @image_l.image_id, {:onclick => "show();", data: {no_turbolink: true}} %></span>
 
     <div id="target" class="hidden">
-      <%= image_tag('loading.gif') %>
+      <%= image_tag('loading_b.gif') %>
     </div>
     
     <span><%= link_to image_tag(@image_r.path, :class => "circle"), '/tour?imgid=' + @image_r.image_id, {:onclick => "show();", data: {no_turbolink: true}} %></span>
