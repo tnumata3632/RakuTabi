@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+
+    <loc>http://www.tabinotane.com/</loc>
+    <image:image>
+       <image:loc>http://www.tabinotane.com/assets/tabinotane.png</image:loc>
+    </image:image>
+    <video:video>
+      <video:content_loc>
+        http://www.tabinotane.com/assets/tabinotane.mp4
+      </video:content_loc>
+      <video:thumbnail_loc>
+        http://www.tabinotane.com/assets/tabinotane.png
+      </video:thumbnail_loc>
+      <video:title>海外旅行のおすすめ先が見つかる | タビノタネ</video:title>
+      <video:description>
+        タビノタネは、思いつかないような場所をおすすめする、海外旅行先レコメンドサービスです。たった3回の質問で、200以上の都市や地域からおすすめの海外旅行先を紹介します。行き先が決まっていない海外旅行のアイデアを得るのに最適です。
+      </video:description>
+    </video:video>
+
+  </url>
+</urlset>
